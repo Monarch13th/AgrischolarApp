@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgriScholarApp.Pages.AdminDashboardPage"
+             BackgroundColor="#F6F7FB">
+
+    <Grid ColumnDefinitions="260,*" RowDefinitions="*">
+
+        <Grid Grid.Column="0" BackgroundColor="#0B1220">
+            <Grid RowDefinitions="Auto,*" Padding="18,18,18,18" RowSpacing="18">
+
+                <VerticalStackLayout Spacing="12">
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                        <Image Grid.RowSpan="2" Source="agrischolar.png" HeightRequest="34" WidthRequest="34" Aspect="AspectFit" />
+                        <Label Grid.Column="1" Text="Agrischolars Admin Portal" TextColor="White" FontAttributes="Bold" FontSize="14" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="Management Dashboard" TextColor="#9AA4B2" FontSize="12" />
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="White" Opacity="0.45" HorizontalOptions="Fill" Margin="0,0,0,0" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Spacing="10">
+                    <HorizontalStackLayout Spacing="10" Margin="2,6,0,8" VerticalOptions="Center">
+                        <Image Source="admin.png" HeightRequest="18" WidthRequest="18" />
+                        <Label Text="Admin Panel" TextColor="White" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+
+                    <Frame BackgroundColor="#1E293B" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_1.png" HeightRequest="18" WidthRequest="18" />
+                            <Label Grid.Column="1" Text="Dashboard" TextColor="White" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnDashboardClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_2.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Scholars Management" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnScholarsManagementClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_3.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Document Verification" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnDocumentVerificationClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="requirement.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Requirements &amp; Announcements" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnRequirementsAnnouncementsClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_5.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Reports &amp; Analytics" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnReportsAnalyticsClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_6.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Settings" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSettingsClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                </VerticalStackLayout>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1" RowDefinitions="Auto,*" BackgroundColor="#F6F7FB">
+
+            <Grid Grid.Row="0" BackgroundColor="#0B1220" Padding="22,14" ColumnDefinitions="*,Auto" HeightRequest="64">
+
+                <HorizontalStackLayout Grid.Column="1" Spacing="14" VerticalOptions="Center">
+                    <Grid HeightRequest="28" WidthRequest="28">
+                        <Frame HeightRequest="28" WidthRequest="28" CornerRadius="14" BackgroundColor="#122038" HasShadow="False" Padding="0">
+                            <Image Source="notification.png" HeightRequest="14" WidthRequest="14" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Frame>
+                        <Frame x:Name="HeaderBadgeFrame" HeightRequest="16" MinimumWidthRequest="16" CornerRadius="8" BackgroundColor="#E11D48" HasShadow="False" Padding="0" HorizontalOptions="End" VerticalOptions="Start" Margin="0,-6,-6,0">
+                            <Label x:Name="HeaderBadgeLabel" Text="3" FontSize="10" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Frame>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNotificationsClicked" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <BoxView WidthRequest="1" HeightRequest="28" Color="#22304A" Opacity="0.9" />
+
+                    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                        <Frame HeightRequest="26" WidthRequest="26" CornerRadius="13" BackgroundColor="#1E293B" HasShadow="False" Padding="0">
+                            <Image Source="admin_profile.png" HeightRequest="26" WidthRequest="26" Aspect="AspectFill" />
+                        </Frame>
+                        <VerticalStackLayout Spacing="0" VerticalOptions="Center">
+                            <Label Text="Admin" TextColor="White" FontAttributes="Bold" FontSize="12" />
+                            <Label Text="System Administrator" TextColor="#9AA4B2" FontSize="10" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                        <Image Source="logout.png" HeightRequest="16" WidthRequest="16" />
+                        <Label Text="Logout" TextColor="White" FontAttributes="Bold" FontSize="12" VerticalOptions="Center" />
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLogoutClicked" />
+                        </HorizontalStackLayout.GestureRecognizers>
+                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
+            </Grid>
+
+            <ScrollView Grid.Row="1">
+                <VerticalStackLayout Padding="24,20" Spacing="18">
+
+                    <!-- ── Page Title ── -->
+                    <Grid ColumnDefinitions="*,Auto">
+                        <VerticalStackLayout Spacing="3">
+                            <Label Text="Dashboard Overview" FontSize="22" FontAttributes="Bold" TextColor="#0B1220" />
+                            <Label Text="Monitor scholarship program performance and activities" FontSize="13" TextColor="#6B7280" />
+                        </VerticalStackLayout>
+                        <Frame Grid.Column="1" CornerRadius="10" BackgroundColor="#F0FDF4" HasShadow="False" Padding="12,7" BorderColor="#BBF7D0" VerticalOptions="Center">
+                            <HorizontalStackLayout Spacing="6">
+                                <Label Text="🗓" FontSize="13" VerticalOptions="Center" />
+                                <Label Text="Apr 2026" FontSize="12" TextColor="#065F46" FontAttributes="Bold" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </Grid>
+
+                    <!-- ── Welcome Banner ── -->
+                    <Frame CornerRadius="18" HasShadow="False" Padding="0" BorderColor="Transparent">
+                        <Grid ColumnDefinitions="*,Auto" Padding="26,22">
+                            <Frame.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#1B4332" Offset="0.0" />
+                                    <GradientStop Color="#2D6A4F" Offset="0.5" />
+                                    <GradientStop Color="#52B788" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Frame.Background>
+                            <VerticalStackLayout Spacing="7" VerticalOptions="Center">
+                                <HorizontalStackLayout Spacing="6">
+                                    <Label Text="🌾" FontSize="14" VerticalOptions="Center" />
+                                    <Label Text="AgriScholar Admin Portal" TextColor="#B7E4C7" FontSize="12" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+                                <Label Text="Welcome back, Administrator!" TextColor="White" FontSize="21" FontAttributes="Bold" />
+                                <Label Text="Here's an overview of today's scholarship activities." TextColor="#B7E4C7" FontSize="13" />
+                            </VerticalStackLayout>
+                            <VerticalStackLayout Grid.Column="1" Spacing="0" VerticalOptions="Center" HorizontalOptions="End">
+                                <Label Text="🌱" FontSize="60" HorizontalOptions="Center" Opacity="0.35" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+
+                    <!-- ── Stat Cards ── -->
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="14">
+
+                        <!-- Total Scholars -->
+                        <Frame Grid.Column="0" CornerRadius="16" BackgroundColor="White" HasShadow="False" Padding="0" BorderColor="#E5E7EB">
+                            <Grid ColumnDefinitions="6,*">
+                                <BoxView Grid.Column="0" Color="#2DD4BF" CornerRadius="16,0,16,0" />
+                                <VerticalStackLayout Grid.Column="1" Spacing="6" Padding="14,16">
+                                    <HorizontalStackLayout Spacing="8">
+                                        <Frame HeightRequest="34" WidthRequest="34" CornerRadius="10" BackgroundColor="#CCFBF1" HasShadow="False" Padding="0">
+                                            <Label Text="👥" HorizontalOptions="Center" VerticalOptions="Center" />
+                                        </Frame>
+                                        <Label Text="Total Scholars" TextColor="#6B7280" FontSize="12" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                    <Label x:Name="TotalScholarsValue" Text="–" FontSize="26" FontAttributes="Bold" TextColor="#0B1220" />
+                                    <HorizontalStackLayout Spacing="4">
+                                        <Label Text="↑" TextColor="#16A34A" FontSize="12" FontAttributes="Bold" VerticalOptions="Center" />
+                                        <Label Text="+12% from last month" FontSize="11" TextColor="#16A34A" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+
+                        <!-- Active Scholars -->
+                        <Frame Grid.Column="1" CornerRadius="16" BackgroundColor="White" HasShadow="False" Padding="0" BorderColor="#E5E7EB">
+                            <Grid ColumnDefinitions="6,*">
+                                <BoxView Grid.Column="0" Color="#16A34A" CornerRadius="16,0,16,0" />
+                                <VerticalStackLayout Grid.Column="1" Spacing="6" Padding="14,16">
+                                    <HorizontalStackLayout Spacing="8">
+                                        <Frame HeightRequest="34" WidthRequest="34" CornerRadius="10" BackgroundColor="#DCFCE7" HasShadow="False" Padding="0">
+                                            <Label Text="✅" HorizontalOptions="Center" VerticalOptions="Center" />
+                                        </Frame>
+                                        <Label Text="Active Scholars" TextColor="#6B7280" FontSize="12" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                    <Label x:Name="ActiveScholarsValue" Text="–" FontSize="26" FontAttributes="Bold" TextColor="#0B1220" />
+                                    <HorizontalStackLayout Spacing="4">
+                                        <Label Text="↑" TextColor="#16A34A" FontSize="12" FontAttributes="Bold" VerticalOptions="Center" />
+                                        <Label Text="+8% from last month" FontSize="11" TextColor="#16A34A" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+
+                        <!-- Pending Applications -->
+                        <Frame Grid.Column="2" CornerRadius="16" BackgroundColor="White" HasShadow="False" Padding="0" BorderColor="#E5E7EB">
+                            <Grid ColumnDefinitions="6,*">
+                                <BoxView Grid.Column="0" Color="#F59E0B" CornerRadius="16,0,16,0" />
+                                <VerticalStackLayout Grid.Column="1" Spacing="6" Padding="14,16">
+                                    <HorizontalStackLayout Spacing="8">
+                                        <Frame HeightRequest="34" WidthRequest="34" CornerRadius="10" BackgroundColor="#FEF3C7" HasShadow="False" Padding="0">
+                                            <Label Text="🕒" HorizontalOptions="Center" VerticalOptions="Center" />
+                                        </Frame>
+                                        <Label Text="Pending Apps" TextColor="#6B7280" FontSize="12" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                    <Label x:Name="PendingApplicationsCardValue" Text="–" FontSize="26" FontAttributes="Bold" TextColor="#0B1220" />
+                                    <HorizontalStackLayout Spacing="4">
+                                        <Label Text="↓" TextColor="#DC2626" FontSize="12" FontAttributes="Bold" VerticalOptions="Center" />
+                                        <Label Text="-15% from last month" FontSize="11" TextColor="#DC2626" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+
+                    </Grid>
+
+                    <!-- ── Quick Actions ── -->
+                    <Frame CornerRadius="14" BackgroundColor="White" HasShadow="False" Padding="18,14" BorderColor="#E5E7EB">
+                        <VerticalStackLayout Spacing="12">
+                            <Label Text="Quick Actions" FontAttributes="Bold" FontSize="13" TextColor="#374151" />
+                            <HorizontalStackLayout Spacing="10">
+                                <Frame CornerRadius="20" BackgroundColor="#F0FDF4" HasShadow="False" Padding="12,7" BorderColor="#BBF7D0">
+                                    <HorizontalStackLayout Spacing="6" VerticalOptions="Center">
+                                        <Label Text="📋" FontSize="13" VerticalOptions="Center" />
+                                        <Label Text="Manage Scholars" FontSize="12" TextColor="#065F46" FontAttributes="Bold" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnScholarsManagementClicked" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                                <Frame CornerRadius="20" BackgroundColor="#EFF6FF" HasShadow="False" Padding="12,7" BorderColor="#BFDBFE">
+                                    <HorizontalStackLayout Spacing="6" VerticalOptions="Center">
+                                        <Label Text="📂" FontSize="13" VerticalOptions="Center" />
+                                        <Label Text="Verify Documents" FontSize="12" TextColor="#1D4ED8" FontAttributes="Bold" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnDocumentVerificationClicked" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                                <Frame CornerRadius="20" BackgroundColor="#F5F3FF" HasShadow="False" Padding="12,7" BorderColor="#DDD6FE">
+                                    <HorizontalStackLayout Spacing="6" VerticalOptions="Center">
+                                        <Label Text="📊" FontSize="13" VerticalOptions="Center" />
+                                        <Label Text="View Reports" FontSize="12" TextColor="#6D28D9" FontAttributes="Bold" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnReportsAnalyticsClicked" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                                <Frame CornerRadius="20" BackgroundColor="#FFFBEB" HasShadow="False" Padding="12,7" BorderColor="#FDE68A">
+                                    <HorizontalStackLayout Spacing="6" VerticalOptions="Center">
+                                        <Label Text="📣" FontSize="13" VerticalOptions="Center" />
+                                        <Label Text="Announcements" FontSize="12" TextColor="#B45309" FontAttributes="Bold" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnRequirementsAnnouncementsClicked" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- ── Charts Row ── -->
+                    <Grid ColumnDefinitions="320,*" ColumnSpacing="14">
+
+                        <!-- Scholars by Year Level (Donut) -->
+                        <Frame Grid.Column="0" CornerRadius="16" BackgroundColor="White" HasShadow="False" Padding="18" BorderColor="#E5E7EB">
+                            <Grid RowDefinitions="Auto,*" RowSpacing="14">
+                                <VerticalStackLayout Spacing="2">
+                                    <Label Text="Scholars by Year Level" FontAttributes="Bold" FontSize="14" TextColor="#0B1220" />
+                                    <Label Text="Distribution across all year levels" FontSize="11" TextColor="#9AA4B2" />
+                                </VerticalStackLayout>
+
+                                <Grid Grid.Row="1" ColumnDefinitions="Auto,*" ColumnSpacing="18">
+                                    <Grid HeightRequest="128" WidthRequest="128">
+                                        <GraphicsView x:Name="PendingApplicationsDonut" HeightRequest="128" WidthRequest="128" />
+                                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="0">
+                                            <Label x:Name="PendingApplicationsTotalValue" Text="–" FontSize="26" FontAttributes="Bold" TextColor="#0B1220" HorizontalOptions="Center" />
+                                            <Label Text="Total" FontSize="11" TextColor="#6B7280" HorizontalOptions="Center" />
+                                        </VerticalStackLayout>
+                                    </Grid>
+
+                                    <VerticalStackLayout Grid.Column="1" Spacing="10" VerticalOptions="Center">
+                                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                                            <BoxView HeightRequest="8" WidthRequest="8" CornerRadius="4" Color="#2DD4BF" VerticalOptions="Center" />
+                                            <Label Grid.Column="1" Text="1st Year" FontSize="12" TextColor="#0B1220" />
+                                            <Label x:Name="Year1LegendValue" Grid.Column="2" Text="0" FontSize="12" TextColor="#6B7280" HorizontalOptions="End" />
+                                        </Grid>
+                                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                                            <BoxView HeightRequest="8" WidthRequest="8" CornerRadius="4" Color="#FBBF24" VerticalOptions="Center" />
+                                            <Label Grid.Column="1" Text="2nd Year" FontSize="12" TextColor="#0B1220" />
+                                            <Label x:Name="Year2LegendValue" Grid.Column="2" Text="0" FontSize="12" TextColor="#6B7280" HorizontalOptions="End" />
+                                        </Grid>
+                                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                                            <BoxView HeightRequest="8" WidthRequest="8" CornerRadius="4" Color="#60A5FA" VerticalOptions="Center" />
+                                            <Label Grid.Column="1" Text="3rd Year" FontSize="12" TextColor="#0B1220" />
+                                            <Label x:Name="Year3LegendValue" Grid.Column="2" Text="0" FontSize="12" TextColor="#6B7280" HorizontalOptions="End" />
+                                        </Grid>
+                                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                                            <BoxView HeightRequest="8" WidthRequest="8" CornerRadius="4" Color="#8B5CF6" VerticalOptions="Center" />
+                                            <Label Grid.Column="1" Text="4th Year" FontSize="12" TextColor="#0B1220" />
+                                            <Label x:Name="Year4LegendValue" Grid.Column="2" Text="0" FontSize="12" TextColor="#6B7280" HorizontalOptions="End" />
+                                        </Grid>
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Grid>
+                        </Frame>
+
+                        <!-- Scholars by Status (Bar Chart) -->
+                        <Frame Grid.Column="1" CornerRadius="16" BackgroundColor="White" HasShadow="False" Padding="18" BorderColor="#E5E7EB">
+                            <Grid RowDefinitions="Auto,Auto,*" RowSpacing="10">
+                                <VerticalStackLayout Spacing="2">
+                                    <Label Text="Scholars by Status" FontAttributes="Bold" FontSize="14" TextColor="#0B1220" />
+                                    <Label Text="Active vs Pending vs Completed" FontSize="11" TextColor="#9AA4B2" />
+                                </VerticalStackLayout>
+                                <Frame Grid.Row="1" CornerRadius="8" BackgroundColor="#F0FDF4" HasShadow="False" Padding="8,5" BorderColor="#BBF7D0" HorizontalOptions="Start">
+                                    <HorizontalStackLayout Spacing="5">
+                                        <BoxView WidthRequest="6" HeightRequest="6" CornerRadius="3" Color="#16A34A" VerticalOptions="Center" />
+                                        <Label Text="Live Data" FontSize="11" TextColor="#16A34A" FontAttributes="Bold" />
+                                    </HorizontalStackLayout>
+                                </Frame>
+                                <Frame Grid.Row="2" CornerRadius="12" BackgroundColor="#FAFAFB" HasShadow="False" Padding="14" BorderColor="#E5E7EB">
+                                    <VerticalStackLayout Spacing="10">
+                                        <GraphicsView x:Name="ActiveScholarsBarChart" HeightRequest="150" />
+                                        <Grid ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="14">
+                                            <Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="6">
+                                                <BoxView HeightRequest="8" WidthRequest="8" CornerRadius="4" Color="#16A34A" VerticalOptions="Center" />
+                                                <Label Grid.Column="1" Text="Active" FontSize="11" TextColor="#6B7280" />
+                                            </Grid>
+                                            <Grid Grid.Column="1" ColumnDefinitions="Auto,Auto" ColumnSpacing="6">
+                                                <BoxView HeightRequest="8" WidthRequest="8" CornerRadius="4" Color="#F59E0B" VerticalOptions="Center" />
+                                                <Label Grid.Column="1" Text="Pending" FontSize="11" TextColor="#6B7280" />
+                                            </Grid>
+                                            <Grid Grid.Column="2" ColumnDefinitions="Auto,Auto" ColumnSpacing="6">
+                                                <BoxView HeightRequest="8" WidthRequest="8" CornerRadius="4" Color="#6366F1" VerticalOptions="Center" />
+                                                <Label Grid.Column="1" Text="Completed" FontSize="11" TextColor="#6B7280" />
+                                            </Grid>
+                                        </Grid>
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </Grid>
+                        </Frame>
+
+                    </Grid>
+
+                    <!-- ── Second Charts Row ── -->
+                    <Grid ColumnDefinitions="*,340" ColumnSpacing="14">
+
+                        <!-- Monthly Applications Bar Chart -->
+                        <Frame Grid.Column="0" CornerRadius="16" BackgroundColor="White" HasShadow="False" Padding="18" BorderColor="#E5E7EB">
+                            <Grid RowDefinitions="Auto,Auto,*" RowSpacing="10">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <VerticalStackLayout Spacing="2">
+                                        <Label Text="Monthly Applications" FontAttributes="Bold" FontSize="14" TextColor="#0B1220" />
+                                        <Label Text="Applications received over the last 6 months" FontSize="11" TextColor="#9AA4B2" />
+                                    </VerticalStackLayout>
+                                    <Frame Grid.Column="1" CornerRadius="8" BackgroundColor="#F0FDF4" HasShadow="False" Padding="8,5" BorderColor="#BBF7D0" VerticalOptions="Start">
+                                        <HorizontalStackLayout Spacing="5">
+                                            <BoxView WidthRequest="6" HeightRequest="6" CornerRadius="3" Color="#16A34A" VerticalOptions="Center" />
+                                            <Label Text="Live Data" FontSize="11" TextColor="#16A34A" FontAttributes="Bold" />
+                                        </HorizontalStackLayout>
+                                    </Frame>
+                                </Grid>
+
+                                <!-- Summary Chips -->
+                                <HorizontalStackLayout Grid.Row="1" Spacing="8">
+                                    <Frame CornerRadius="8" BackgroundColor="#F0FDF4" HasShadow="False" Padding="10,5" BorderColor="#BBF7D0">
+                                        <VerticalStackLayout Spacing="1">
+                                            <Label x:Name="MonthlyPeakLabel" Text="–" FontSize="13" FontAttributes="Bold" TextColor="#065F46" HorizontalOptions="Center" />
+                                            <Label Text="Peak Month" FontSize="10" TextColor="#9AA4B2" HorizontalOptions="Center" />
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                    <Frame CornerRadius="8" BackgroundColor="#EFF6FF" HasShadow="False" Padding="10,5" BorderColor="#BFDBFE">
+                                        <VerticalStackLayout Spacing="1">
+                                            <Label x:Name="MonthlyAvgLabel" Text="–" FontSize="13" FontAttributes="Bold" TextColor="#1D4ED8" HorizontalOptions="Center" />
+                                            <Label Text="Avg / Month" FontSize="10" TextColor="#9AA4B2" HorizontalOptions="Center" />
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                    <Frame CornerRadius="8" BackgroundColor="#F5F3FF" HasShadow="False" Padding="10,5" BorderColor="#DDD6FE">
+                                        <VerticalStackLayout Spacing="1">
+                                            <Label x:Name="MonthlyTotalLabel" Text="–" FontSize="13" FontAttributes="Bold" TextColor="#6D28D9" HorizontalOptions="Center" />
+                                            <Label Text="6-Month Total" FontSize="10" TextColor="#9AA4B2" HorizontalOptions="Center" />
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                </HorizontalStackLayout>
+
+                                <!-- Chart -->
+                                <Frame Grid.Row="2" CornerRadius="12" BackgroundColor="#FAFAFB" HasShadow="False" Padding="14" BorderColor="#E5E7EB">
+                                    <GraphicsView x:Name="MonthlyApplicationsChart" HeightRequest="170" />
+                                </Frame>
+                            </Grid>
+                        </Frame>
+
+                        <!-- Scholars by Course (Donut) -->
+                        <Frame Grid.Column="1" CornerRadius="16" BackgroundColor="White" HasShadow="False" Padding="18" BorderColor="#E5E7EB">
+                            <Grid RowDefinitions="Auto,*" RowSpacing="14">
+                                <VerticalStackLayout Spacing="2">
+                                    <Label Text="Scholars by Program" FontAttributes="Bold" FontSize="14" TextColor="#0B1220" />
+                                    <Label Text="Breakdown by degree program" FontSize="11" TextColor="#9AA4B2" />
+                                </VerticalStackLayout>
+
+                                <Grid Grid.Row="1" RowDefinitions="Auto,*" RowSpacing="14">
+                                    <!-- Donut + center total -->
+                                    <Grid HeightRequest="140" WidthRequest="140" HorizontalOptions="Center">
+                                        <GraphicsView x:Name="CourseDonut" HeightRequest="140" WidthRequest="140" />
+                                        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="0">
+                                            <Label x:Name="CourseTotalValue" Text="–" FontSize="22" FontAttributes="Bold" TextColor="#0B1220" HorizontalOptions="Center" />
+                                            <Label Text="Scholars" FontSize="10" TextColor="#6B7280" HorizontalOptions="Center" />
+                                        </VerticalStackLayout>
+                                    </Grid>
+
+                                    <!-- Legend -->
+                                    <VerticalStackLayout Grid.Row="1" x:Name="CourseLegend" Spacing="8" VerticalOptions="Start" />
+                                </Grid>
+                            </Grid>
+                        </Frame>
+
+                    </Grid>
+
+                    <!-- ── Recent Applications ── -->
+                    <Frame CornerRadius="16" BackgroundColor="White" HasShadow="False" Padding="0" BorderColor="#E5E7EB">
+                        <VerticalStackLayout Spacing="0">
+
+                            <!-- Card Header -->
+                            <Grid ColumnDefinitions="*,Auto" Padding="18,16,18,14">
+                                <VerticalStackLayout Spacing="3">
+                                    <Label Text="Recent Applications" FontAttributes="Bold" FontSize="15" TextColor="#0B1220" />
+                                    <Label Text="Latest scholarship applications submitted" FontSize="12" TextColor="#9AA4B2" />
+                                </VerticalStackLayout>
+                                <Frame Grid.Column="1" CornerRadius="20" BackgroundColor="#F0FFF4" HasShadow="False" Padding="10,5" BorderColor="#BBF7D0" VerticalOptions="Center">
+                                    <HorizontalStackLayout Spacing="5" VerticalOptions="Center">
+                                        <BoxView WidthRequest="6" HeightRequest="6" CornerRadius="3" Color="#16A34A" VerticalOptions="Center" />
+                                        <Label x:Name="RecentAppsTimestamp" Text="Loading..." FontSize="11" TextColor="#16A34A" FontAttributes="Bold" />
+                                    </HorizontalStackLayout>
+                                </Frame>
+                            </Grid>
+
+                            <!-- Divider -->
+                            <BoxView HeightRequest="1" Color="#F1F5F9" HorizontalOptions="Fill" />
+
+                            <!-- Table Header -->
+                            <Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto,Auto" ColumnSpacing="12" Padding="18,10,18,8" BackgroundColor="#F8FAFC">
+                                <Label Text="APPLICANT" Grid.Column="1" FontSize="10" TextColor="#9AA4B2" FontAttributes="Bold" CharacterSpacing="0.8" />
+                                <Label Text="COURSE" Grid.Column="2" FontSize="10" TextColor="#9AA4B2" FontAttributes="Bold" CharacterSpacing="0.8" HorizontalOptions="Center" />
+                                <Label Text="GPA" Grid.Column="3" FontSize="10" TextColor="#9AA4B2" FontAttributes="Bold" CharacterSpacing="0.8" HorizontalOptions="Center" />
+                                <Label Text="STATUS" Grid.Column="4" FontSize="10" TextColor="#9AA4B2" FontAttributes="Bold" CharacterSpacing="0.8" HorizontalOptions="Center" />
+                                <Label Text="ACTION" Grid.Column="5" FontSize="10" TextColor="#9AA4B2" FontAttributes="Bold" CharacterSpacing="0.8" HorizontalOptions="End" />
+                            </Grid>
+
+                            <!-- Dynamic rows inserted from code-behind -->
+                            <VerticalStackLayout x:Name="RecentApplicationsList" Spacing="0" />
+
+                            <!-- Footer -->
+                            <BoxView HeightRequest="1" Color="#F1F5F9" HorizontalOptions="Fill" />
+                            <Grid Padding="18,12" BackgroundColor="#FAFBFC">
+                                <Label x:Name="RecentAppsFooterLabel" Text="Loading..." FontSize="11" TextColor="#9AA4B2" HorizontalOptions="Start" VerticalOptions="Center" />
+                                <Frame CornerRadius="8" BackgroundColor="#F0FDF4" HasShadow="False" Padding="12,6" BorderColor="#BBF7D0" HorizontalOptions="End" VerticalOptions="Center">
+                                    <Label Text="View All Applications →" FontSize="11" TextColor="#065F46" FontAttributes="Bold" />
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnViewAllApplicationsClicked" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                            </Grid>
+
+                        </VerticalStackLayout>
+                    </Frame>
+
+                </VerticalStackLayout>
+            </ScrollView>
+
+            <Grid x:Name="NotificationsOverlay" Grid.RowSpan="2" IsVisible="False" InputTransparent="False">
+                <BoxView BackgroundColor="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCloseNotifications" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <Frame BackgroundColor="#1F2A3A" HasShadow="True" CornerRadius="16" Padding="0" BorderColor="#314055" HorizontalOptions="End" VerticalOptions="Start" Margin="0,64,210,0" WidthRequest="430">
+                    <Grid RowDefinitions="Auto,*">
+
+                        <Grid BackgroundColor="#1B2432" Padding="18,14" ColumnDefinitions="Auto,Auto,*,Auto,Auto" ColumnSpacing="12">
+                            <Image Source="notification.png" HeightRequest="18" WidthRequest="18" Opacity="0.9" />
+                            <Label Grid.Column="1" Text="Notifications" TextColor="White" FontAttributes="Bold" FontSize="16" VerticalOptions="Center" />
+
+                            <Frame x:Name="OverlayBadgeFrame" Grid.Column="2" BackgroundColor="#EF4444" CornerRadius="14" HasShadow="False" Padding="10,4" HorizontalOptions="Start" VerticalOptions="Center">
+                                <Label x:Name="OverlayBadgeLabel" Text="3 new" TextColor="White" FontSize="12" FontAttributes="Bold" />
+                            </Frame>
+
+                            <HorizontalStackLayout Grid.Column="3" Spacing="8" VerticalOptions="Center" HorizontalOptions="End">
+                                <Label Text="✓✓" TextColor="#D5D9E0" FontSize="14" VerticalOptions="Center" />
+                                <Label Text="Mark all read" TextColor="#D5D9E0" FontSize="12" FontAttributes="Bold" VerticalOptions="Center" />
+                                <HorizontalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnMarkAllReadClicked" />
+                                </HorizontalStackLayout.GestureRecognizers>
+                            </HorizontalStackLayout>
+
+                            <Label Grid.Column="4" Text="✕" TextColor="#D5D9E0" FontSize="14" VerticalOptions="Center" HorizontalOptions="End">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnCloseNotifications" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+
+                        <ScrollView Grid.Row="1" HeightRequest="420">
+                            <VerticalStackLayout x:Name="NotificationsList" Spacing="0">
+                                <!-- Dynamic notifications will be populated from code-behind -->
+                            </VerticalStackLayout>
+                        </ScrollView>
+
+                    </Grid>
+                </Frame>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

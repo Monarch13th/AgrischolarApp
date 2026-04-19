@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgriScholarApp.ScholarPage.ProfilePage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F0F4FA">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Top App Bar -->
+        <Grid Grid.Row="0" BackgroundColor="#0B1220" Padding="20,16" ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto">
+            <HorizontalStackLayout Spacing="12" VerticalOptions="Center">
+                <Frame WidthRequest="36" HeightRequest="36" CornerRadius="12" BackgroundColor="#1E293B" HasShadow="False" Padding="0" VerticalOptions="Center">
+                    <Label Text="A" FontAttributes="Bold" TextColor="#38BDF8" HorizontalOptions="Center" VerticalOptions="Center" FontSize="16" />
+                </Frame>
+                <VerticalStackLayout VerticalOptions="Center" Spacing="0">
+                    <Label Text="Agrischolars" TextColor="White" FontAttributes="Bold" FontSize="15" />
+                    <Label Text="Scholar Portal" TextColor="#94A3B8" FontSize="11" />
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Grid.Column="2" Spacing="16" VerticalOptions="Center" HorizontalOptions="End">
+                <Label Text="⌕" FontSize="20" TextColor="#94A3B8" VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSearchTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Grid HeightRequest="32" WidthRequest="32">
+                    <Frame HeightRequest="32" WidthRequest="32" CornerRadius="16" BackgroundColor="#1E293B" HasShadow="False" Padding="0" InputTransparent="True">
+                        <Image Source="notification.png" HeightRequest="16" WidthRequest="16" HorizontalOptions="Center" VerticalOptions="Center" Opacity="0.8" InputTransparent="True" />
+                    </Frame>
+                    <Frame HeightRequest="18" MinimumWidthRequest="18" CornerRadius="9" BackgroundColor="#EF4444" HasShadow="False" Padding="0" HorizontalOptions="End" VerticalOptions="Start" Margin="0,-4,-4,0" InputTransparent="True">
+                        <Label x:Name="NotificationsBadgeLabel" Text="0" FontSize="10" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" InputTransparent="True" />
+                    </Frame>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnNotificationsTapped" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Label Text="☰" FontSize="20" TextColor="#94A3B8" VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMenuTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+        </Grid>
+
+        <!-- Scrollable Content -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="0">
+
+                <!-- Hero Banner -->
+                <Grid HeightRequest="180">
+                    <Grid.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#1E3A8A" Offset="0.0" />
+                            <GradientStop Color="#3B82F6" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Grid.Background>
+                    <!-- Decorative circles -->
+                    <Ellipse Fill="#FFFFFF" Opacity="0.1" WidthRequest="240" HeightRequest="240"
+                             HorizontalOptions="End" VerticalOptions="End"
+                             Margin="0,0,-80,-80" />
+                    <Ellipse Fill="#FFFFFF" Opacity="0.05" WidthRequest="160" HeightRequest="160"
+                             HorizontalOptions="Start" VerticalOptions="Start"
+                             Margin="-40,-40,0,0" />
+                </Grid>
+
+                <!-- Avatar overlapping the hero -->
+                <Grid Margin="0,-64,0,0" HeightRequest="64">
+                    <Frame WidthRequest="128" HeightRequest="128" CornerRadius="64"
+                           BackgroundColor="#F8FAFC" HasShadow="True" Padding="0"
+                           HorizontalOptions="Center" VerticalOptions="Start" Margin="0,-64,0,0"
+                           BorderColor="#E2E8F0">
+                        <Label Text="👤" FontSize="56" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+                </Grid>
+
+                <!-- Name + Status -->
+                <VerticalStackLayout Spacing="8" HorizontalOptions="Center" Margin="0,72,0,0" Padding="16,0">
+                    <Label x:Name="FullNameLabel" Text="Scholar" FontAttributes="Bold"
+                           FontSize="24" TextColor="#0F172A" HorizontalOptions="Center" />
+                    <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                        <Frame CornerRadius="12" BackgroundColor="#ECFCCB" HasShadow="False"
+                               Padding="14,6" BorderColor="#D9F99D">
+                            <HorizontalStackLayout Spacing="6">
+                                <Ellipse Fill="#65A30D" WidthRequest="6" HeightRequest="6" VerticalOptions="Center" />
+                                <Label x:Name="StatusLabel" Text="Active" FontSize="12"
+                                       TextColor="#4D7C0F" FontAttributes="Bold" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </Frame>
+                        <Frame CornerRadius="12" BackgroundColor="#EFF6FF" HasShadow="False"
+                               Padding="14,6" BorderColor="Transparent">
+                            <Label x:Name="ScholarshipTypeLabel" Text="Full Scholar" FontSize="12"
+                                   TextColor="#2563EB" FontAttributes="Bold" />
+                        </Frame>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+                <!-- Quick Stats Row -->
+                <Grid ColumnDefinitions="*,Auto,*,Auto,*" Margin="16,18,16,0" ColumnSpacing="0">
+
+                    <VerticalStackLayout HorizontalOptions="Center" Spacing="4">
+                        <Label x:Name="YearLevelQuickLabel" Text="—" FontSize="18"
+                               FontAttributes="Bold" TextColor="#1565C0" HorizontalOptions="Center" />
+                        <Label Text="Year Level" FontSize="11" TextColor="#6B7280" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+
+                    <BoxView Grid.Column="1" WidthRequest="1" HeightRequest="36"
+                             BackgroundColor="#E5E7EB" VerticalOptions="Center" />
+
+                    <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="4">
+                        <Label x:Name="GpaQuickLabel" Text="—" FontSize="18"
+                               FontAttributes="Bold" TextColor="#1565C0" HorizontalOptions="Center" />
+                        <Label Text="Current GPA" FontSize="11" TextColor="#6B7280" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+
+                    <BoxView Grid.Column="3" WidthRequest="1" HeightRequest="36"
+                             BackgroundColor="#E5E7EB" VerticalOptions="Center" />
+
+                    <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="4">
+                        <Label x:Name="SchoolQuickLabel" Text="—" FontSize="11"
+                               FontAttributes="Bold" TextColor="#1565C0" HorizontalOptions="Center"
+                               LineBreakMode="TailTruncation" MaxLines="2"
+                               HorizontalTextAlignment="Center" />
+                        <Label Text="University" FontSize="11" TextColor="#6B7280" HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+
+                </Grid>
+
+                <!-- Divider -->
+                <BoxView HeightRequest="1" BackgroundColor="#E5E7EB" Margin="16,18,16,0" />
+
+                <!-- Cards -->
+                <VerticalStackLayout Padding="16,14" Spacing="14">
+
+                    <!-- Account Information -->
+                    <Frame CornerRadius="18" BackgroundColor="White" BorderColor="#E5E7EB"
+                           HasShadow="False" Padding="0">
+                        <!-- Card header with blue accent bar -->
+                        <VerticalStackLayout Spacing="0">
+                            <Grid BackgroundColor="#1565C0" HeightRequest="5" />
+                            <VerticalStackLayout Padding="16,14" Spacing="14">
+                                <HorizontalStackLayout Spacing="10">
+                                    <Frame WidthRequest="34" HeightRequest="34" CornerRadius="10"
+                                           BackgroundColor="#EFF6FF" HasShadow="False" Padding="0">
+                                        <Label Text="🪪" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Frame>
+                                    <Label Text="Account Information" FontAttributes="Bold"
+                                           FontSize="14" TextColor="#111827" VerticalOptions="Center" />
+                                </HorizontalStackLayout>
+
+                                <BoxView HeightRequest="1" BackgroundColor="#F3F4F6" />
+
+                                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="14">
+
+                                    <Label Text="Student ID" FontSize="12" TextColor="#6B7280" VerticalOptions="Center" />
+                                    <Label x:Name="StudentIdValue" Grid.Column="1" Text="—"
+                                           FontSize="12" FontAttributes="Bold" TextColor="#111827"
+                                           HorizontalTextAlignment="End" VerticalOptions="Center" />
+
+                                    <Label Grid.Row="1" Text="Program" FontSize="12" TextColor="#6B7280" VerticalOptions="Center" />
+                                    <Label x:Name="ProgramValue" Grid.Row="1" Grid.Column="1" Text="—"
+                                           FontSize="12" FontAttributes="Bold" TextColor="#1565C0"
+                                           HorizontalTextAlignment="End" VerticalOptions="Center"
+                                           LineBreakMode="TailTruncation" MaxLines="1" />
+
+                                    <Label Grid.Row="2" Text="Year Level" FontSize="12" TextColor="#6B7280" VerticalOptions="Center" />
+                                    <Label x:Name="YearLevelValue" Grid.Row="2" Grid.Column="1" Text="—"
+                                           FontSize="12" FontAttributes="Bold" TextColor="#111827"
+                                           HorizontalTextAlignment="End" VerticalOptions="Center" />
+
+                                    <Label Grid.Row="3" Text="Scholarship Type" FontSize="12" TextColor="#6B7280" VerticalOptions="Center" />
+                                    <Label x:Name="ScholarshipTypeValue" Grid.Row="3" Grid.Column="1" Text="—"
+                                           FontSize="12" FontAttributes="Bold" TextColor="#111827"
+                                           HorizontalTextAlignment="End" VerticalOptions="Center" />
+                                </Grid>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Personal Information -->
+                    <Frame CornerRadius="18" BackgroundColor="White" BorderColor="#E5E7EB"
+                           HasShadow="False" Padding="0">
+                        <VerticalStackLayout Spacing="0">
+                            <Grid BackgroundColor="#7C3AED" HeightRequest="5" />
+                            <VerticalStackLayout Padding="16,14" Spacing="14">
+
+                                <HorizontalStackLayout Spacing="10">
+                                    <Frame WidthRequest="34" HeightRequest="34" CornerRadius="10"
+                                           BackgroundColor="#F5F3FF" HasShadow="False" Padding="0">
+                                        <Label Text="👤" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Frame>
+                                    <VerticalStackLayout Spacing="1" VerticalOptions="Center">
+                                        <Label Text="Personal Information" FontAttributes="Bold"
+                                               FontSize="14" TextColor="#111827" />
+                                        <Label Text="Your personal contact details" FontSize="11" TextColor="#6B7280" />
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+
+                                <BoxView HeightRequest="1" BackgroundColor="#F3F4F6" />
+
+                                <!-- Name fields -->
+                                <Frame CornerRadius="14" BackgroundColor="#FAFAFA"
+                                       HasShadow="False" Padding="14" BorderColor="#F3F4F6">
+                                    <VerticalStackLayout Spacing="0">
+
+                                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10" Padding="0,6">
+                                            <Frame WidthRequest="28" HeightRequest="28" CornerRadius="8"
+                                                   BackgroundColor="#EFF6FF" HasShadow="False" Padding="0">
+                                                <Label Text="👤" FontSize="13" HorizontalOptions="Center" VerticalOptions="Center" />
+                                            </Frame>
+                                            <Label Grid.Column="1" Text="First Name" FontSize="12"
+                                                   TextColor="#6B7280" VerticalOptions="Center" />
+                                            <Label x:Name="FirstNameValue" Grid.Column="2" Text="—"
+                                                   FontSize="12" FontAttributes="Bold" TextColor="#111827"
+                                                   HorizontalTextAlignment="End" VerticalOptions="Center" />
+                                        </Grid>
+
+                                        <BoxView HeightRequest="1" BackgroundColor="#E5E7EB" Margin="0,4" />
+
+                                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10" Padding="0,6">
+                                            <Frame WidthRequest="28" HeightRequest="28" CornerRadius="8"
+                                                   BackgroundColor="#EFF6FF" HasShadow="False" Padding="0">
+                                                <Label Text="👤" FontSize="13" HorizontalOptions="Center" VerticalOptions="Center" />
+                                            </Frame>
+                                            <Label Grid.Column="1" Text="Middle Name" FontSize="12"
+                                                   TextColor="#6B7280" VerticalOptions="Center" />
+                                            <Label x:Name="MiddleNameValue" Grid.Column="2" Text="—"
+                                                   FontSize="12" FontAttributes="Bold" TextColor="#111827"
+                                                   HorizontalTextAlignment="End" VerticalOptions="Center" />
+                                        </Grid>
+
+                                        <BoxView HeightRequest="1" BackgroundColor="#E5E7EB" Margin="0,4" />
+
+                                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10" Padding="0,6">
+                                            <Frame WidthRequest="28" HeightRequest="28" CornerRadius="8"
+                                                   BackgroundColor="#EFF6FF" HasShadow="False" Padding="0">
+                                                <Label Text="👤" FontSize="13" HorizontalOptions="Center" VerticalOptions="Center" />
+                                            </Frame>
+                                            <Label Grid.Column="1" Text="Last Name" FontSize="12"
+                                                   TextColor="#6B7280" VerticalOptions="Center" />
+                                            <Label x:Name="LastNameValue" Grid.Column="2" Text="—"
+                                                   FontSize="12" FontAttributes="Bold" TextColor="#111827"
+                                                   HorizontalTextAlignment="End" VerticalOptions="Center" />
+                                        </Grid>
+
+                                    </VerticalStackLayout>
+                                </Frame>
+
+                                <!-- Contact fields -->
+                                <Frame CornerRadius="14" BackgroundColor="#FAFAFA"
+                                       HasShadow="False" Padding="14" BorderColor="#F3F4F6">
+                                    <VerticalStackLayout Spacing="0">
+
+                                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10" Padding="0,6">
+                                            <Frame WidthRequest="28" HeightRequest="28" CornerRadius="8"
+                                                   BackgroundColor="#FEF3C7" HasShadow="False" Padding="0">
+                                                <Label Text="✉" FontSize="13" HorizontalOptions="Center" VerticalOptions="Center" />
+                                            </Frame>
+                                            <Label Grid.Column="1" Text="Email" FontSize="12"
+                                                   TextColor="#6B7280" VerticalOptions="Center" />
+                                            <Label x:Name="EmailLabel" Grid.Column="2" Text="—"
+                                                   FontSize="12" FontAttributes="Bold" TextColor="#111827"
+                                                   HorizontalTextAlignment="End" VerticalOptions="Center" />
+                                        </Grid>
+
+                                        <BoxView HeightRequest="1" BackgroundColor="#E5E7EB" Margin="0,4" />
+
+                                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10" Padding="0,6">
+                                            <Frame WidthRequest="28" HeightRequest="28" CornerRadius="8"
+                                                   BackgroundColor="#D1FAE5" HasShadow="False" Padding="0">
+                                                <Label Text="☎" FontSize="13" HorizontalOptions="Center" VerticalOptions="Center" />
+                                            </Frame>
+                                            <Label Grid.Column="1" Text="Phone Number" FontSize="12"
+                                                   TextColor="#6B7280" VerticalOptions="Center" />
+                                            <Label x:Name="PhoneNumberValue" Grid.Column="2" Text="—"
+                                                   FontSize="12" FontAttributes="Bold" TextColor="#111827"
+                                                   HorizontalTextAlignment="End" VerticalOptions="Center" />
+                                        </Grid>
+
+                                    </VerticalStackLayout>
+                                </Frame>
+
+                                <!-- Other details -->
+                                <Frame CornerRadius="14" BackgroundColor="#FAFAFA"
+                                       HasShadow="False" Padding="14" BorderColor="#F3F4F6">
+                                    <VerticalStackLayout Spacing="0">
+
+                                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10" Padding="0,6">
+                                            <Frame WidthRequest="28" HeightRequest="28" CornerRadius="8"
+                                                   BackgroundColor="#F3E8FF" HasShadow="False" Padding="0">
+                                                <Label Text="⌂" FontSize="13" HorizontalOptions="Center" VerticalOptions="Center" />
+                                            </Frame>
+                                            <Label Grid.Column="1" Text="Home Address" FontSize="12"
+                                                   TextColor="#6B7280" VerticalOptions="Center" />
+                                            <Label x:Name="HomeAddressValue" Grid.Column="2" Text="—"
+                                                   FontSize="12" FontAttributes="Bold" TextColor="#111827"
+                                                   HorizontalTextAlignment="End" VerticalOptions="Center"
+                                                   LineBreakMode="TailTruncation" MaxLines="1" />
+                                        </Grid>
+
+                                        <BoxView HeightRequest="1" BackgroundColor="#E5E7EB" Margin="0,4" />
+
+                                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10" Padding="0,6">
+                                            <Frame WidthRequest="28" HeightRequest="28" CornerRadius="8"
+                                                   BackgroundColor="#FEE2E2" HasShadow="False" Padding="0">
+                                                <Label Text="⚧" FontSize="13" HorizontalOptions="Center" VerticalOptions="Center" />
+                                            </Frame>
+                                            <Label Grid.Column="1" Text="Sex" FontSize="12"
+                                                   TextColor="#6B7280" VerticalOptions="Center" />
+                                            <Label x:Name="SexValue" Grid.Column="2" Text="—"
+                                                   FontSize="12" FontAttributes="Bold" TextColor="#111827"
+                                                   HorizontalTextAlignment="End" VerticalOptions="Center" />
+                                        </Grid>
+
+                                        <BoxView HeightRequest="1" BackgroundColor="#E5E7EB" Margin="0,4" />
+
+                                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10" Padding="0,6">
+                                            <Frame WidthRequest="28" HeightRequest="28" CornerRadius="8"
+                                                   BackgroundColor="#E0F2FE" HasShadow="False" Padding="0">
+                                                <Label Text="🎂" FontSize="13" HorizontalOptions="Center" VerticalOptions="Center" />
+                                            </Frame>
+                                            <Label Grid.Column="1" Text="Date of Birth" FontSize="12"
+                                                   TextColor="#6B7280" VerticalOptions="Center" />
+                                            <Label x:Name="DateOfBirthValue" Grid.Column="2" Text="—"
+                                                   FontSize="12" FontAttributes="Bold" TextColor="#111827"
+                                                   HorizontalTextAlignment="End" VerticalOptions="Center" />
+                                        </Grid>
+
+                                    </VerticalStackLayout>
+                                </Frame>
+
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- GPA Progress Card -->
+                    <Frame CornerRadius="18" BackgroundColor="White" BorderColor="#E5E7EB"
+                           HasShadow="False" Padding="0">
+                        <VerticalStackLayout Spacing="0">
+                            <Grid BackgroundColor="#16A34A" HeightRequest="5" />
+                            <VerticalStackLayout Padding="16,14" Spacing="14">
+
+                                <HorizontalStackLayout Spacing="10">
+                                    <Frame WidthRequest="34" HeightRequest="34" CornerRadius="10"
+                                           BackgroundColor="#DCFCE7" HasShadow="False" Padding="0">
+                                        <Label Text="📊" FontSize="16" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Frame>
+                                    <VerticalStackLayout Spacing="1" VerticalOptions="Center">
+                                        <Label Text="Academic Performance" FontAttributes="Bold"
+                                               FontSize="14" TextColor="#111827" />
+                                        <Label Text="Current GPA standing" FontSize="11" TextColor="#6B7280" />
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+
+                                <BoxView HeightRequest="1" BackgroundColor="#F3F4F6" />
+
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <VerticalStackLayout Spacing="8">
+                                        <Label Text="Current GPA" FontSize="12" TextColor="#6B7280" />
+                                        <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                                            <Label x:Name="GpaDisplayLabel" Text="—" FontSize="28"
+                                                   FontAttributes="Bold" TextColor="#16A34A" VerticalOptions="Center" />
+                                            <Label Text="/ 4.00" FontSize="14" TextColor="#9CA3AF" VerticalOptions="End" Margin="0,0,0,4" />
+                                        </HorizontalStackLayout>
+                                        <!-- Progress bar -->
+                                        <Frame HeightRequest="10" BackgroundColor="#F3F4F6" CornerRadius="5"
+                                               Padding="0" HasShadow="False" BorderColor="Transparent">
+                                            <BoxView x:Name="GpaProgressBar" HeightRequest="10" BackgroundColor="#16A34A"
+                                                     HorizontalOptions="Start" CornerRadius="5" WidthRequest="0" />
+                                        </Frame>
+                                        <Label x:Name="GpaStatusLabel" Text="Checking status..." FontSize="11" TextColor="#6B7280" />
+                                    </VerticalStackLayout>
+                                    <Frame Grid.Column="1" CornerRadius="14" BackgroundColor="#DCFCE7"
+                                           HasShadow="False" Padding="14,10" VerticalOptions="Center"
+                                           Margin="12,0,0,0">
+                                        <VerticalStackLayout Spacing="2" HorizontalOptions="Center">
+                                            <Label Text="✓" FontSize="18" TextColor="#16A34A"
+                                                   FontAttributes="Bold" HorizontalOptions="Center" />
+                                            <Label x:Name="GpaStatusBadge" Text="Good" FontSize="11"
+                                                   TextColor="#16A34A" FontAttributes="Bold" HorizontalOptions="Center" />
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                </Grid>
+
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Bottom spacer -->
+                    <BoxView HeightRequest="8" Color="Transparent" />
+
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation -->
+        <Grid Grid.Row="2" BackgroundColor="White" Padding="16,12" ColumnDefinitions="*,*,*,*,*" RowDefinitions="Auto">
+            <VerticalStackLayout Spacing="6" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnHomeTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Image Source="home.png" HeightRequest="24" WidthRequest="24" Aspect="AspectFit" Opacity="0.4" />
+                <BoxView HeightRequest="4" WidthRequest="24" BackgroundColor="Transparent" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" Spacing="6" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnRecordsTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Image Source="records.png" HeightRequest="24" WidthRequest="24" Aspect="AspectFit" Opacity="0.4" />
+                <BoxView HeightRequest="4" WidthRequest="24" BackgroundColor="Transparent" />
+            </VerticalStackLayout>
+
+            <Frame Grid.Column="2" WidthRequest="56" HeightRequest="56" CornerRadius="28" BackgroundColor="#3B82F6" HasShadow="True" Padding="0" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,-24,0,0">
+                <Image Source="plusicon.png" HeightRequest="24" WidthRequest="24" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnQuickActionTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Frame>
+
+            <VerticalStackLayout Grid.Column="3" Spacing="6" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDocumentsTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Image Source="documents.png" HeightRequest="24" WidthRequest="24" Aspect="AspectFit" Opacity="0.4" />
+                <BoxView HeightRequest="4" WidthRequest="24" BackgroundColor="Transparent" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="4" Spacing="6" HorizontalOptions="Center" VerticalOptions="Center">
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnProfileTapped" />
+                </VerticalStackLayout.GestureRecognizers>
+                <Image Source="profile.png" HeightRequest="24" WidthRequest="24" Aspect="AspectFit" />
+                <BoxView HeightRequest="4" WidthRequest="24" BackgroundColor="#3B82F6" CornerRadius="2" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Menu Popup -->
+        <Grid x:Name="MenuOverlay" Grid.RowSpan="3" IsVisible="False"
+              BackgroundColor="Transparent" InputTransparent="False">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnMenuOverlayTapped" />
+            </Grid.GestureRecognizers>
+            <Grid HorizontalOptions="End" VerticalOptions="Start" Margin="0,58,14,0"
+                  RowDefinitions="10,Auto" WidthRequest="190">
+                <Frame Grid.Row="0" WidthRequest="14" HeightRequest="14" CornerRadius="2"
+                       BackgroundColor="White" HasShadow="False" Padding="0"
+                       Rotation="45" HorizontalOptions="End" Margin="0,0,18,0" />
+                <Frame Grid.Row="1" CornerRadius="14" BackgroundColor="White"
+                       HasShadow="True" Padding="10" BorderColor="#E5E7EB">
+                    <VerticalStackLayout Spacing="8">
+                        <Button Text="Logout" Clicked="OnLogoutClicked"
+                                BackgroundColor="#F3F4F6" TextColor="#111827" CornerRadius="12" Padding="12,10" />
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+        </Grid>
+
+        <!-- Notifications Overlay -->
+        <Grid x:Name="NotificationsOverlay" Grid.RowSpan="3" IsVisible="False" InputTransparent="False">
+            <BoxView BackgroundColor="Transparent">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCloseNotifications" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <Frame BackgroundColor="#1F2A3A" HasShadow="True" CornerRadius="16" Padding="0"
+                   BorderColor="#314055" HorizontalOptions="Fill" VerticalOptions="Start" Margin="14,70,14,0">
+                <Grid RowDefinitions="Auto,*">
+                    <Grid BackgroundColor="#1B2432" Padding="14,12"
+                          ColumnDefinitions="Auto,Auto,*,Auto" ColumnSpacing="12">
+                        <Image Source="notification.png" HeightRequest="18" WidthRequest="18" Opacity="0.9" />
+                        <Label Grid.Column="1" Text="Notifications" TextColor="White"
+                               FontAttributes="Bold" FontSize="16" VerticalOptions="Center" />
+                        <Frame Grid.Column="2" BackgroundColor="#EF4444" CornerRadius="14"
+                               HasShadow="False" Padding="10,4" HorizontalOptions="Start"
+                               VerticalOptions="Center" IsVisible="False">
+                            <Label Text="2 new" TextColor="White" FontSize="12" FontAttributes="Bold" />
+                        </Frame>
+                        <Label Grid.Column="3" Text="✕" TextColor="#D5D9E0" FontSize="14"
+                               VerticalOptions="Center" HorizontalOptions="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCloseNotifications" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+
+                    <ScrollView Grid.Row="1" HeightRequest="360">
+                        <VerticalStackLayout Spacing="0">
+                            <Grid x:Name="NotificationRow1" Padding="14,14"
+                                  ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12"
+                                  BackgroundColor="#263548" IsVisible="False">
+                                <Frame HeightRequest="36" WidthRequest="36" CornerRadius="18"
+                                       BackgroundColor="#E9D5FF" HasShadow="False" Padding="0" VerticalOptions="Start">
+                                    <Label Text="📄" HorizontalOptions="Center" VerticalOptions="Center"
+                                           FontSize="16" TextColor="#6D28D9" />
+                                </Frame>
+                                <VerticalStackLayout Grid.Column="1" Spacing="4">
+                                    <Label x:Name="NotificationTitle1" Text="" TextColor="White"
+                                           FontAttributes="Bold" FontSize="13" />
+                                    <Label x:Name="NotificationBody1" Text="" TextColor="#AAB4C3"
+                                           FontSize="11" LineBreakMode="WordWrap" />
+                                    <Label x:Name="NotificationTime1" Text="" TextColor="#8A94A6" FontSize="10" />
+                                </VerticalStackLayout>
+                                <Label Grid.Column="2" Text="🗑" TextColor="#9AA4B2" FontSize="16"
+                                       VerticalOptions="Center" HorizontalOptions="End">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnDeleteNotification1" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                            <BoxView HeightRequest="1" Color="#314055" Opacity="0.75" />
+                            <Grid x:Name="NotificationRow2" Padding="14,14"
+                                  ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12"
+                                  BackgroundColor="#263548" IsVisible="False">
+                                <Frame HeightRequest="36" WidthRequest="36" CornerRadius="18"
+                                       BackgroundColor="#DCFCE7" HasShadow="False" Padding="0" VerticalOptions="Start">
+                                    <Label Text="✓" HorizontalOptions="Center" VerticalOptions="Center"
+                                           FontSize="16" TextColor="#15803D" FontAttributes="Bold" />
+                                </Frame>
+                                <VerticalStackLayout Grid.Column="1" Spacing="4">
+                                    <Label x:Name="NotificationTitle2" Text="" TextColor="White"
+                                           FontAttributes="Bold" FontSize="13" />
+                                    <Label x:Name="NotificationBody2" Text="" TextColor="#AAB4C3"
+                                           FontSize="11" LineBreakMode="WordWrap" />
+                                    <Label x:Name="NotificationTime2" Text="" TextColor="#8A94A6" FontSize="10" />
+                                </VerticalStackLayout>
+                                <Label Grid.Column="2" Text="🗑" TextColor="#9AA4B2" FontSize="16"
+                                       VerticalOptions="Center" HorizontalOptions="End">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnDeleteNotification2" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </Grid>
+            </Frame>
+        </Grid>
+
+        <!-- Quick Action Bottom Sheet -->
+        <Grid x:Name="QuickActionOverlay" Grid.Row="1" IsVisible="False"
+              BackgroundColor="Transparent" InputTransparent="False">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnQuickActionOverlayTapped" />
+            </Grid.GestureRecognizers>
+            <Frame VerticalOptions="End" Margin="14,0,14,24" CornerRadius="18"
+                   BackgroundColor="White" HasShadow="True" Padding="14">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="New Quick Action" FontAttributes="Bold" FontSize="14"
+                           TextColor="#111827" HorizontalTextAlignment="Center" />
+                    <Frame CornerRadius="14" BackgroundColor="#F9FAFB" HasShadow="False"
+                           Padding="12" BorderColor="#E5E7EB">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                            <Frame WidthRequest="28" HeightRequest="28" CornerRadius="8"
+                                   BackgroundColor="#FEE2E2" HasShadow="False" Padding="0" VerticalOptions="Center">
+                                <Label Text="📄" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" />
+                            </Frame>
+                            <Label Grid.Column="1" Text="Submit Grade Report" FontSize="13"
+                                   FontAttributes="Bold" TextColor="#111827" VerticalOptions="Center" />
+                            <Label Grid.Column="2" Text=">" FontSize="16" TextColor="#9CA3AF" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSubmitGradeReportTapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Frame CornerRadius="14" BackgroundColor="#F9FAFB" HasShadow="False"
+                           Padding="12" BorderColor="#E5E7EB">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                            <Frame WidthRequest="28" HeightRequest="28" CornerRadius="8"
+                                   BackgroundColor="#DBEAFE" HasShadow="False" Padding="0" VerticalOptions="Center">
+                                <Label Text="⬆" FontSize="14" HorizontalOptions="Center" VerticalOptions="Center" />
+                            </Frame>
+                            <Label Grid.Column="1" Text="Upload Document" FontSize="13"
+                                   FontAttributes="Bold" TextColor="#111827" VerticalOptions="Center" />
+                            <Label Grid.Column="2" Text=">" FontSize="16" TextColor="#9CA3AF" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnUploadDocumentTapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <Button Text="Cancel" Clicked="OnQuickActionCancelClicked"
+                            BackgroundColor="#F3F4F6" TextColor="#111827" CornerRadius="14" Padding="14" />
+                </VerticalStackLayout>
+            </Frame>
+        </Grid>
+
+    </Grid>
+</ContentPage>

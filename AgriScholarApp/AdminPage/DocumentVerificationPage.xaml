@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgriScholarApp.Pages.DocumentVerificationPage"
+             BackgroundColor="#F6F7FB">
+
+    <Grid ColumnDefinitions="260,*" RowDefinitions="*">
+
+        <Grid Grid.Column="0" BackgroundColor="#0B1220">
+            <Grid RowDefinitions="Auto,*" Padding="18,18,18,18" RowSpacing="18">
+
+                <VerticalStackLayout Spacing="12">
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                        <Image Grid.RowSpan="2" Source="agrischolar.png" HeightRequest="34" WidthRequest="34" Aspect="AspectFit" />
+                        <Label Grid.Column="1" Text="Agrischolars Admin Portal" TextColor="White" FontAttributes="Bold" FontSize="14" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="Management Dashboard" TextColor="#9AA4B2" FontSize="12" />
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="White" Opacity="0.45" HorizontalOptions="Fill" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Spacing="10">
+                    <HorizontalStackLayout Spacing="10" Margin="2,6,0,8" VerticalOptions="Center">
+                        <Image Source="admin.png" HeightRequest="18" WidthRequest="18" />
+                        <Label Text="Admin Panel" TextColor="White" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_1.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Dashboard" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnDashboardClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_2.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Scholars Management" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnScholarsManagementClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="#1E293B" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_3.png" HeightRequest="18" WidthRequest="18" />
+                            <Label Grid.Column="1" Text="Document Verification" TextColor="White" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnDocumentVerificationClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="requirement.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Requirements &amp; Announcements" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnRequirementsAnnouncementsClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_5.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Reports &amp; Analytics" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnReportsAnalyticsClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_6.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Settings" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSettingsClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                </VerticalStackLayout>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1" RowDefinitions="Auto,*" BackgroundColor="#F6F7FB">
+
+            <Grid Grid.Row="0" BackgroundColor="#0B1220" Padding="22,14" ColumnDefinitions="*,Auto" HeightRequest="64">
+                <HorizontalStackLayout Grid.Column="1" Spacing="14" VerticalOptions="Center">
+                    <Grid HeightRequest="28" WidthRequest="28">
+                        <Frame HeightRequest="28" WidthRequest="28" CornerRadius="14" BackgroundColor="#122038" HasShadow="False" Padding="0">
+                            <Image Source="notification.png" HeightRequest="14" WidthRequest="14" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Frame>
+                        <Frame x:Name="HeaderBadgeFrame" HeightRequest="16" MinimumWidthRequest="16" CornerRadius="8" BackgroundColor="#E11D48" HasShadow="False" Padding="0" HorizontalOptions="End" VerticalOptions="Start" Margin="0,-6,-6,0">
+                            <Label x:Name="HeaderBadgeLabel" Text="3" FontSize="10" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Frame>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNotificationsClicked" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <BoxView WidthRequest="1" HeightRequest="28" Color="#22304A" Opacity="0.9" />
+
+                    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                        <Frame HeightRequest="26" WidthRequest="26" CornerRadius="13" BackgroundColor="#1E293B" HasShadow="False" Padding="0">
+                            <Image Source="admin_profile.png" HeightRequest="26" WidthRequest="26" Aspect="AspectFill" />
+                        </Frame>
+                        <VerticalStackLayout Spacing="0" VerticalOptions="Center">
+                            <Label Text="Admin" TextColor="White" FontAttributes="Bold" FontSize="12" />
+                            <Label Text="System Administrator" TextColor="#9AA4B2" FontSize="10" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                        <Image Source="logout.png" HeightRequest="16" WidthRequest="16" />
+                        <Label Text="Logout" TextColor="White" FontAttributes="Bold" FontSize="12" VerticalOptions="Center" />
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLogoutClicked" />
+                        </HorizontalStackLayout.GestureRecognizers>
+                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
+            </Grid>
+
+            <ScrollView Grid.Row="1">
+                <VerticalStackLayout Padding="22" Spacing="16">
+
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Document Verification" FontSize="24" FontAttributes="Bold" TextColor="#0B1220" />
+                        <Label Text="Review and verify scholar submitted documents" FontSize="13" TextColor="#6B7280" />
+                    </VerticalStackLayout>
+
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="14">
+
+                        <Frame CornerRadius="14" BackgroundColor="White" HasShadow="False" Padding="16" BorderColor="#E5E7EB">
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12" RowDefinitions="Auto,Auto" RowSpacing="4">
+                                <Frame HeightRequest="36" WidthRequest="36" CornerRadius="12" BackgroundColor="#FEF3C7" HasShadow="False" Padding="0">
+                                    <Label Text="🕒" HorizontalOptions="Center" VerticalOptions="Center" />
+                                </Frame>
+                                <Label Grid.Column="1" Text="Pending Review" FontSize="12" TextColor="#6B7280" />
+                                <Label x:Name="PendingReviewValue" Grid.Row="1" Grid.Column="1" Text="-" FontSize="22" FontAttributes="Bold" TextColor="#0B1220" />
+                            </Grid>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnPendingBoxTapped" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame Grid.Column="1" CornerRadius="14" BackgroundColor="White" HasShadow="False" Padding="16" BorderColor="#E5E7EB">
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12" RowDefinitions="Auto,Auto" RowSpacing="4">
+                                <Frame HeightRequest="36" WidthRequest="36" CornerRadius="12" BackgroundColor="#DCFCE7" HasShadow="False" Padding="0">
+                                    <Label Text="✅" HorizontalOptions="Center" VerticalOptions="Center" />
+                                </Frame>
+                                <Label Grid.Column="1" Text="Verified" FontSize="12" TextColor="#6B7280" />
+                                <Label x:Name="VerifiedTodayValue" Grid.Row="1" Grid.Column="1" Text="-" FontSize="22" FontAttributes="Bold" TextColor="#0B1220" />
+                            </Grid>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnVerifiedBoxTapped" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <Frame Grid.Column="2" CornerRadius="14" BackgroundColor="White" HasShadow="False" Padding="16" BorderColor="#E5E7EB">
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12" RowDefinitions="Auto,Auto" RowSpacing="4">
+                                <Frame HeightRequest="36" WidthRequest="36" CornerRadius="12" BackgroundColor="#FEE2E2" HasShadow="False" Padding="0">
+                                    <Label Text="✖" HorizontalOptions="Center" VerticalOptions="Center" TextColor="#DC2626" />
+                                </Frame>
+                                <Label Grid.Column="1" Text="Rejected" FontSize="12" TextColor="#6B7280" />
+                                <Label x:Name="RejectedValue" Grid.Row="1" Grid.Column="1" Text="-" FontSize="22" FontAttributes="Bold" TextColor="#0B1220" />
+                            </Grid>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnRejectedBoxTapped" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                    </Grid>
+
+                    <Frame CornerRadius="14" BackgroundColor="White" HasShadow="False" Padding="16" BorderColor="#E5E7EB">
+                        <VerticalStackLayout Spacing="10">
+                            <VerticalStackLayout Spacing="2">
+                                <Label x:Name="SelectedFilterHeader" Text="Pending Documents" FontAttributes="Bold" FontSize="14" TextColor="#0B1220" />
+                                <Label x:Name="SelectedFilterSubHeader" Text="Documents awaiting verification" FontSize="12" TextColor="#6B7280" />
+                            </VerticalStackLayout>
+
+                            <CollectionView x:Name="PendingDocumentsCollection" ItemsSource="{Binding FilteredGradeReports}" SelectionMode="None">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame CornerRadius="12" BackgroundColor="White" HasShadow="False" Padding="0" BorderColor="#E5E7EB" Margin="0,0,0,12">
+                                            <Grid ColumnDefinitions="6,*" ColumnSpacing="0">
+                                                <BoxView Color="#F59E0B" />
+                                                <Grid Grid.Column="1" Padding="14" ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" RowSpacing="10">
+
+                                                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                                                        <Label Text="📄" FontSize="16" />
+                                                        <HorizontalStackLayout Grid.Column="1" Spacing="10" VerticalOptions="Center">
+                                                            <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="13" />
+                                                            <Frame CornerRadius="10" BackgroundColor="#FEF3C7" HasShadow="False" Padding="10,3">
+                                                                <Label Text="{Binding StatusDisplay}" FontSize="10" TextColor="#92400E" />
+                                                            </Frame>
+                                                        </HorizontalStackLayout>
+                                                    </Grid>
+
+                                                    <Grid Grid.Row="1" ColumnDefinitions="Auto,Auto,Auto" ColumnSpacing="20">
+                                                        <Label Text="{Binding ScholarDisplay}" FontSize="11" TextColor="#6B7280" />
+                                                        <Label Grid.Column="1" Text="{Binding EmailDisplay}" FontSize="11" TextColor="#6B7280" />
+                                                        <Label Grid.Column="2" Text="{Binding UploadedDisplay}" FontSize="11" TextColor="#6B7280" />
+                                                    </Grid>
+
+                                                    <HorizontalStackLayout Grid.Column="1" Spacing="10" VerticalOptions="Center">
+                                                        <Button Text="View" BackgroundColor="White" TextColor="#0B1220" BorderColor="#E5E7EB" BorderWidth="1" CornerRadius="10" Padding="14,8" Clicked="OnViewClicked" CommandParameter="{Binding}" />
+                                                        <Button Text="Approve" IsVisible="{Binding Source={x:Reference PendingDocumentsCollection}, Path=BindingContext.ShowDecisionActions}" BackgroundColor="#16A34A" TextColor="White" CornerRadius="10" Padding="14,8" Clicked="OnVerifyClicked" CommandParameter="{Binding}" />
+                                                        <Button Text="Reject" IsVisible="{Binding Source={x:Reference PendingDocumentsCollection}, Path=BindingContext.ShowDecisionActions}" BackgroundColor="#DC2626" TextColor="White" CornerRadius="10" Padding="14,8" Clicked="OnRejectClicked" CommandParameter="{Binding}" />
+                                                    </HorizontalStackLayout>
+
+                                                </Grid>
+                                            </Grid>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                        </VerticalStackLayout>
+                    </Frame>
+
+                </VerticalStackLayout>
+            </ScrollView>
+
+            <Grid x:Name="NotificationsOverlay" Grid.RowSpan="2" IsVisible="False" InputTransparent="False">
+                <BoxView BackgroundColor="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCloseNotifications" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <Frame BackgroundColor="#1F2A3A" HasShadow="True" CornerRadius="16" Padding="0" BorderColor="#314055" HorizontalOptions="End" VerticalOptions="Start" Margin="0,64,210,0" WidthRequest="430">
+                    <Grid RowDefinitions="Auto,*">
+
+                        <Grid BackgroundColor="#1B2432" Padding="18,14" ColumnDefinitions="Auto,Auto,*,Auto,Auto" ColumnSpacing="12">
+                            <Image Source="notification.png" HeightRequest="18" WidthRequest="18" Opacity="0.9" />
+                            <Label Grid.Column="1" Text="Notifications" TextColor="White" FontAttributes="Bold" FontSize="16" VerticalOptions="Center" />
+
+                            <Frame x:Name="OverlayBadgeFrame" Grid.Column="2" BackgroundColor="#EF4444" CornerRadius="14" HasShadow="False" Padding="10,4" HorizontalOptions="Start" VerticalOptions="Center">
+                                <Label x:Name="OverlayBadgeLabel" Text="3 new" TextColor="White" FontSize="12" FontAttributes="Bold" />
+                            </Frame>
+
+                            <HorizontalStackLayout Grid.Column="3" Spacing="8" VerticalOptions="Center" HorizontalOptions="End">
+                                <Label Text="✓✓" TextColor="#D5D9E0" FontSize="14" VerticalOptions="Center" />
+                                <Label Text="Mark all read" TextColor="#D5D9E0" FontSize="12" FontAttributes="Bold" VerticalOptions="Center" />
+                                <HorizontalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnMarkAllReadClicked" />
+                                </HorizontalStackLayout.GestureRecognizers>
+                            </HorizontalStackLayout>
+
+                            <Label Grid.Column="4" Text="✕" TextColor="#D5D9E0" FontSize="14" VerticalOptions="Center" HorizontalOptions="End">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnCloseNotifications" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+
+                        <ScrollView Grid.Row="1" HeightRequest="420">
+                            <VerticalStackLayout x:Name="NotificationsList" Spacing="0">
+                                <!-- Dynamic notifications will be populated from code-behind -->
+                            </VerticalStackLayout>
+                        </ScrollView>
+
+                    </Grid>
+                </Frame>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

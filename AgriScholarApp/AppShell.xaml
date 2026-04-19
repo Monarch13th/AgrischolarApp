@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AgriScholarApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AgriScholarApp"
+    xmlns:pages="clr-namespace:AgriScholarApp.Pages"
+    xmlns:scholar="clr-namespace:AgriScholarApp.ScholarPage"
+    Title="AgriScholarApp"
+    FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False">
+
+    <ShellContent
+        Title="Scholar Login"
+        ContentTemplate="{DataTemplate scholar:ScholarLoginPage}"
+        Route="ScholarLoginPage" />
+
+    <ShellContent
+        Title="Scholar Home"
+        ContentTemplate="{DataTemplate scholar:ScholarHomePage}"
+        Route="ScholarHomePage" />
+
+    <ShellContent
+        Title="Academic Records"
+        ContentTemplate="{DataTemplate scholar:AcademicRecordsPage}"
+        Route="AcademicRecordsPage" />
+
+    <ShellContent
+        Title="Documents"
+        ContentTemplate="{DataTemplate scholar:DocumentsPage}"
+        Route="DocumentsPage" />
+
+    <ShellContent
+        Title="Upload Grade Report"
+        ContentTemplate="{DataTemplate scholar:UploadGradeReportPage}"
+        Route="UploadGradeReportPage" />
+
+    <ShellContent
+        Title="Upload Document"
+        ContentTemplate="{DataTemplate scholar:UploadDocumentPage}"
+        Route="UploadDocumentPage" />
+
+    <ShellContent
+        Title="Profile"
+        ContentTemplate="{DataTemplate scholar:ProfilePage}"
+        Route="ProfilePage" />
+
+    <ShellContent
+        Title="Admin Dashboard"
+        ContentTemplate="{DataTemplate pages:AdminDashboardPage}"
+        Route="AdminDashboardPage" />
+
+    <ShellContent
+        Title="Scholars Management"
+        ContentTemplate="{DataTemplate pages:ScholarsManagementPage}"
+        Route="ScholarsManagementPage" />
+
+    <ShellContent
+        Title="Document Verification"
+        ContentTemplate="{DataTemplate pages:DocumentVerificationPage}"
+        Route="DocumentVerificationPage" />
+
+    <ShellContent
+        Title="Requirements &amp; Announcements"
+        ContentTemplate="{DataTemplate pages:RequirementsAnnouncementsManagementPage}"
+        Route="RequirementsAnnouncementsManagementPage" />
+
+    <ShellContent
+        Title="Reports &amp; Analytics"
+        ContentTemplate="{DataTemplate pages:ReportsAnalyticsPage}"
+        Route="ReportsAnalyticsPage" />
+
+    <ShellContent
+        Title="Settings"
+        ContentTemplate="{DataTemplate pages:SettingsPage}"
+        Route="SettingsPage" />
+
+</Shell>

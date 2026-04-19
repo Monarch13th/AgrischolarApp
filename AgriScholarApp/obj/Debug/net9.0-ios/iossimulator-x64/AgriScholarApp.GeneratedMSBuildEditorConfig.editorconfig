@@ -1,0 +1,121 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net9.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = AgriScholarApp
+build_property.ProjectDir = C:\Users\Justin\source\repos\AgriScholarApp\AgriScholarApp\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/AdminPage/AdminDashboardPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.AdminPage.AdminDashboardPage.xaml
+build_metadata.AdditionalFiles.TargetPath = AdminPage\AdminDashboardPage.xaml
+build_metadata.AdditionalFiles.RelativePath = AdminPage\AdminDashboardPage.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/AdminPage/DocumentVerificationPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.AdminPage.DocumentVerificationPage.xaml
+build_metadata.AdditionalFiles.TargetPath = AdminPage\DocumentVerificationPage.xaml
+build_metadata.AdditionalFiles.RelativePath = AdminPage\DocumentVerificationPage.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/AdminPage/ReportsAnalyticsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.AdminPage.ReportsAnalyticsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = AdminPage\ReportsAnalyticsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = AdminPage\ReportsAnalyticsPage.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/AdminPage/RequirementsAnnouncementsManagementPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.AdminPage.RequirementsAnnouncementsManagementPage.xaml
+build_metadata.AdditionalFiles.TargetPath = AdminPage\RequirementsAnnouncementsManagementPage.xaml
+build_metadata.AdditionalFiles.RelativePath = AdminPage\RequirementsAnnouncementsManagementPage.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/AdminPage/ScholarsManagementPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.AdminPage.ScholarsManagementPage.xaml
+build_metadata.AdditionalFiles.TargetPath = AdminPage\ScholarsManagementPage.xaml
+build_metadata.AdditionalFiles.RelativePath = AdminPage\ScholarsManagementPage.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/AdminPage/SettingsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.AdminPage.SettingsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = AdminPage\SettingsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = AdminPage\SettingsPage.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/ScholarPage/AcademicRecordsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.ScholarPage.AcademicRecordsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = ScholarPage\AcademicRecordsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = ScholarPage\AcademicRecordsPage.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/ScholarPage/DocumentsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.ScholarPage.DocumentsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = ScholarPage\DocumentsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = ScholarPage\DocumentsPage.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/ScholarPage/ProfilePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.ScholarPage.ProfilePage.xaml
+build_metadata.AdditionalFiles.TargetPath = ScholarPage\ProfilePage.xaml
+build_metadata.AdditionalFiles.RelativePath = ScholarPage\ProfilePage.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/ScholarPage/ScholarHomePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.ScholarPage.ScholarHomePage.xaml
+build_metadata.AdditionalFiles.TargetPath = ScholarPage\ScholarHomePage.xaml
+build_metadata.AdditionalFiles.RelativePath = ScholarPage\ScholarHomePage.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/ScholarPage/ScholarLoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.ScholarPage.ScholarLoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = ScholarPage\ScholarLoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = ScholarPage\ScholarLoginPage.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/ScholarPage/UploadDocumentPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.ScholarPage.UploadDocumentPage.xaml
+build_metadata.AdditionalFiles.TargetPath = ScholarPage\UploadDocumentPage.xaml
+build_metadata.AdditionalFiles.RelativePath = ScholarPage\UploadDocumentPage.xaml
+
+[C:/Users/Justin/source/repos/AgriScholarApp/AgriScholarApp/ScholarPage/UploadGradeReportPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AgriScholarApp.ScholarPage.UploadGradeReportPage.xaml
+build_metadata.AdditionalFiles.TargetPath = ScholarPage\UploadGradeReportPage.xaml
+build_metadata.AdditionalFiles.RelativePath = ScholarPage\UploadGradeReportPage.xaml

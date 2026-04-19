@@ -1,0 +1,10 @@
+<Project DefaultTargets="Run" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MauiProject>AgriScholarApp\AgriScholarApp.csproj</MauiProject>
+    <TargetFramework>net9.0-windows10.0.19041.0</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="Run">
+    <MSBuild Projects="$(MauiProject)" Targets="Run" Properties="TargetFramework=$(TargetFramework)" />
+  </Target>
+</Project>

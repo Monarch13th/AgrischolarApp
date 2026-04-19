@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgriScholarApp.Pages.ScholarsManagementPage"
+             x:Name="ScholarsPage"
+             BackgroundColor="#F6F7FB">
+
+    <Grid ColumnDefinitions="260,*" RowDefinitions="*">
+
+        <Grid Grid.Column="0" BackgroundColor="#0B1220">
+            <Grid RowDefinitions="Auto,*" Padding="18,18,18,18" RowSpacing="18">
+
+                <VerticalStackLayout Spacing="12">
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                        <Image Grid.RowSpan="2" Source="agrischolar.png" HeightRequest="34" WidthRequest="34" Aspect="AspectFit" />
+                        <Label Grid.Column="1" Text="Agrischolars Admin Portal" TextColor="White" FontAttributes="Bold" FontSize="14" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="Management Dashboard" TextColor="#9AA4B2" FontSize="12" />
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="White" Opacity="0.45" HorizontalOptions="Fill" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Spacing="10">
+                    <HorizontalStackLayout Spacing="10" Margin="2,6,0,8" VerticalOptions="Center">
+                        <Image Source="admin.png" HeightRequest="18" WidthRequest="18" />
+                        <Label Text="Admin Panel" TextColor="White" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_1.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Dashboard" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnDashboardClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="#1E293B" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_2.png" HeightRequest="18" WidthRequest="18" />
+                            <Label Grid.Column="1" Text="Scholars Management" TextColor="White" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnScholarsManagementClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_3.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Document Verification" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnDocumentVerificationClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="requirement.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Requirements &amp; Announcements" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnRequirementsAnnouncementsClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_5.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Reports &amp; Analytics" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnReportsAnalyticsClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_6.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Settings" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSettingsClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                </VerticalStackLayout>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1" RowDefinitions="Auto,*" BackgroundColor="#F6F7FB">
+
+            <Grid Grid.Row="0" BackgroundColor="#0B1220" Padding="22,14" ColumnDefinitions="*,Auto" HeightRequest="64">
+
+                <HorizontalStackLayout Grid.Column="1" Spacing="14" VerticalOptions="Center">
+                    <Grid HeightRequest="28" WidthRequest="28">
+                        <Frame HeightRequest="28" WidthRequest="28" CornerRadius="14" BackgroundColor="#122038" HasShadow="False" Padding="0">
+                            <Image Source="notification.png" HeightRequest="14" WidthRequest="14" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Frame>
+                        <Frame x:Name="HeaderBadgeFrame" HeightRequest="16" MinimumWidthRequest="16" CornerRadius="8" BackgroundColor="#E11D48" HasShadow="False" Padding="0" HorizontalOptions="End" VerticalOptions="Start" Margin="0,-6,-6,0">
+                            <Label x:Name="HeaderBadgeLabel" Text="3" FontSize="10" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Frame>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNotificationsClicked" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <BoxView WidthRequest="1" HeightRequest="28" Color="#22304A" Opacity="0.9" />
+
+                    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                        <Frame HeightRequest="26" WidthRequest="26" CornerRadius="13" BackgroundColor="#1E293B" HasShadow="False" Padding="0">
+                            <Image Source="admin_profile.png" HeightRequest="26" WidthRequest="26" Aspect="AspectFill" />
+                        </Frame>
+                        <VerticalStackLayout Spacing="0" VerticalOptions="Center">
+                            <Label Text="Admin" TextColor="White" FontAttributes="Bold" FontSize="12" />
+                            <Label Text="System Administrator" TextColor="#9AA4B2" FontSize="10" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                        <Image Source="logout.png" HeightRequest="16" WidthRequest="16" />
+                        <Label Text="Logout" TextColor="White" FontAttributes="Bold" FontSize="12" VerticalOptions="Center" />
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLogoutClicked" />
+                        </HorizontalStackLayout.GestureRecognizers>
+                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
+            </Grid>
+
+            <ScrollView Grid.Row="1">
+                <VerticalStackLayout Padding="22" Spacing="16">
+
+                    <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Scholars Management" FontSize="24" FontAttributes="Bold" TextColor="#0B1220" />
+                            <Label Text="Manage and monitor all scholarship recipients" FontSize="13" TextColor="#6B7280" />
+                        </VerticalStackLayout>
+
+                        <Button Grid.Column="1" Text="Add New Scholar" Clicked="OnAddNewScholarClicked" BackgroundColor="#16A34A" TextColor="White" CornerRadius="10" Padding="16,10" />
+                    </Grid>
+
+                    <Frame CornerRadius="14" BackgroundColor="White" HasShadow="False" Padding="14" BorderColor="#E5E7EB">
+                        <Grid ColumnDefinitions="*,150,110" ColumnSpacing="12" RowDefinitions="Auto">
+
+                            <Frame CornerRadius="10" BackgroundColor="#F3F4F6" HasShadow="False" Padding="12,10" BorderColor="#E5E7EB">
+                                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                                    <Label Text="🔍" VerticalOptions="Center" />
+                                    <Entry x:Name="SearchEntry" Grid.Column="1" Placeholder="Search by name or student ID..." BackgroundColor="Transparent" TextChanged="OnSearchTextChanged" />
+                                </Grid>
+                            </Frame>
+
+                            <Frame Grid.Column="1" CornerRadius="10" BackgroundColor="White" HasShadow="False" Padding="10,0" BorderColor="#E5E7EB">
+                                <Picker x:Name="StatusFilterPicker" Title="All Status" TitleColor="#6B7280" TextColor="#0B1220" SelectedIndexChanged="OnStatusFilterChanged">
+                                    <Picker.Items>
+                                        <x:String>All Status</x:String>
+                                        <x:String>Active</x:String>
+                                        <x:String>Inactive</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                            </Frame>
+
+                            <Button Grid.Column="2" Text="Export" Clicked="OnExportClicked" BackgroundColor="White" TextColor="#0B1220" BorderColor="#E5E7EB" BorderWidth="1" CornerRadius="10" Padding="16,10" />
+
+                        </Grid>
+                    </Frame>
+
+                    <Frame CornerRadius="14" BackgroundColor="White" HasShadow="False" Padding="16" BorderColor="#E5E7EB">
+                        <VerticalStackLayout Spacing="10">
+                            <VerticalStackLayout Spacing="2">
+                                <Label x:Name="AllScholarsCountLabel" Text="All Scholars (0)" FontAttributes="Bold" FontSize="14" TextColor="#0B1220" />
+                                <Label Text="Complete list of scholarship recipients" FontSize="12" TextColor="#6B7280" />
+                            </VerticalStackLayout>
+
+                            <CollectionView x:Name="ScholarsCollection" ItemsSource="{Binding Scholars}" SelectionMode="None" Margin="0,6,0,0">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Padding="0,0,0,16">
+                                            <Frame CornerRadius="16" BackgroundColor="White" HasShadow="True" Padding="20" BorderColor="#F3F4F6" Margin="0" HorizontalOptions="FillAndExpand" MinimumHeightRequest="{Binding OptionsMinHeight}">
+                                                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto" ColumnSpacing="16">
+                                                    
+                                                    <!-- Avatar -->
+                                                    <Frame HeightRequest="52" WidthRequest="52" CornerRadius="26" BackgroundColor="{Binding AvatarBgColor}" HasShadow="False" Padding="0" VerticalOptions="Start">
+                                                        <Label Text="{Binding AvatarInitials}" FontSize="18" FontAttributes="Bold" TextColor="{Binding AvatarTextColor}" HorizontalOptions="Center" VerticalOptions="Center" />
+                                                    </Frame>
+
+                                                    <!-- Content Grid -->
+                                                    <Grid Grid.Column="1" RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto" RowSpacing="16">
+                                                        
+                                                        <!-- Top Row: Name, Status and Actions -->
+                                                        <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="12" RowDefinitions="Auto,Auto" RowSpacing="2">
+                                                            <!-- Identity -->
+                                                            <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                                                                <Label Text="{Binding NameDisplay}" FontAttributes="Bold" FontSize="16" TextColor="#111827" LineBreakMode="TailTruncation" VerticalOptions="Center" />
+                                                                <Label Text="{Binding StudentId, StringFormat='({0})'}" FontSize="13" TextColor="#6B7280" VerticalOptions="Center" Margin="0,2,0,0" />
+                                                            </HorizontalStackLayout>
+                                                            
+                                                            <Label Grid.Row="1" Text="{Binding Email}" FontSize="12" TextColor="#9CA3AF" />
+
+                                                            <!-- Badges -->
+                                                            <HorizontalStackLayout Grid.Column="1" Grid.RowSpan="2" Spacing="8" VerticalOptions="Start">
+                                                                <Frame CornerRadius="12" BackgroundColor="#F0FDF4" BorderColor="#BBF7D0" HasShadow="False" Padding="12,6">
+                                                                    <Label Text="{Binding InitialStatus}" FontSize="11" FontAttributes="Bold" TextColor="#15803D" />
+                                                                </Frame>
+                                                                <Frame CornerRadius="12" BackgroundColor="#EFF6FF" BorderColor="#BFDBFE" HasShadow="False" Padding="12,6">
+                                                                    <Label Text="{Binding ScholarshipType}" FontSize="11" FontAttributes="Bold" TextColor="#1D4ED8" />
+                                                                </Frame>
+                                                            </HorizontalStackLayout>
+                                                        </Grid>
+
+                                                        <!-- Bottom Row: Metrics -->
+                                                        <Grid Grid.Row="1" ColumnDefinitions="*,*,*" ColumnSpacing="20">
+                                                            <VerticalStackLayout Spacing="2">
+                                                                <Label Text="PROGRAM" FontSize="10" CharacterSpacing="1" TextColor="#9CA3AF" FontAttributes="Bold" />
+                                                                <Label Text="{Binding DegreeProgram}" FontSize="13" TextColor="#374151" />
+                                                            </VerticalStackLayout>
+                                                            <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                                                <Label Text="YEAR LEVEL" FontSize="10" CharacterSpacing="1" TextColor="#9CA3AF" FontAttributes="Bold" />
+                                                                <Label Text="{Binding YearLevel}" FontSize="13" TextColor="#374151" />
+                                                            </VerticalStackLayout>
+                                                            <VerticalStackLayout Grid.Column="2" Spacing="2">
+                                                                <Label Text="GPA" FontSize="10" CharacterSpacing="1" TextColor="#9CA3AF" FontAttributes="Bold" />
+                                                                <Label Text="{Binding GpaDisplay}" FontSize="14" TextColor="#16A34A" FontAttributes="Bold" />
+                                                            </VerticalStackLayout>
+                                                        </Grid>
+
+                                                        <!-- Actions Group -->
+                                                        <VerticalStackLayout Grid.Column="1" Grid.RowSpan="2" Spacing="8" HorizontalOptions="End" VerticalOptions="Start">
+                                                            <HorizontalStackLayout Spacing="8">
+                                                                <Frame CornerRadius="10" BackgroundColor="#F9FAFB" BorderColor="#E5E7EB" HasShadow="False" Padding="14,8">
+                                                                    <HorizontalStackLayout Spacing="6">
+                                                                        <Label Text="👁" FontSize="14" TextColor="#4B5563" VerticalOptions="Center" />
+                                                                        <Label Text="View" FontSize="12" FontAttributes="Bold" TextColor="#4B5563" VerticalOptions="Center" />
+                                                                    </HorizontalStackLayout>
+                                                                    <Frame.GestureRecognizers>
+                                                                        <TapGestureRecognizer Tapped="OnViewDetailsClicked" CommandParameter="{Binding}" />
+                                                                    </Frame.GestureRecognizers>
+                                                                </Frame>
+                                                                
+                                                                <Frame CornerRadius="10" BackgroundColor="#F9FAFB" BorderColor="#E5E7EB" HasShadow="False" Padding="10,8" WidthRequest="42">
+                                                                    <Label Text="⋮" FontSize="18" TextColor="#4B5563" HorizontalOptions="Center" VerticalOptions="Center" />
+                                                                    <Frame.GestureRecognizers>
+                                                                        <TapGestureRecognizer Tapped="OnScholarMoreOptionsClicked" CommandParameter="{Binding}" />
+                                                                    </Frame.GestureRecognizers>
+                                                                </Frame>
+                                                            </HorizontalStackLayout>
+
+                                                            <Frame IsVisible="{Binding IsOptionsOpen}" CornerRadius="12" BackgroundColor="White" BorderColor="#E5E7EB" HasShadow="True" Padding="8" WidthRequest="180" HorizontalOptions="End">
+                                                                <VerticalStackLayout Spacing="6">
+                                                                    <Button Text="Edit Scholar" BackgroundColor="Transparent" TextColor="#374151" CornerRadius="8" Padding="12,10" FontSize="13" HorizontalOptions="Fill" Clicked="OnScholarEditMenuClicked" CommandParameter="{Binding}" />
+                                                                    <Button Text="Delete Scholar" BackgroundColor="#FEF2F2" TextColor="#DC2626" CornerRadius="8" Padding="12,10" FontSize="13" FontAttributes="Bold" HorizontalOptions="Fill" Clicked="OnScholarDeleteMenuClicked" CommandParameter="{Binding}" />
+                                                                </VerticalStackLayout>
+                                                            </Frame>
+                                                        </VerticalStackLayout>
+
+                                                    </Grid>
+                                                </Grid>
+                                            </Frame>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                        </VerticalStackLayout>
+                    </Frame>
+
+                </VerticalStackLayout>
+            </ScrollView>
+
+            <Grid x:Name="NotificationsOverlay" Grid.RowSpan="2" IsVisible="False" InputTransparent="False">
+                <BoxView BackgroundColor="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCloseNotifications" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <Frame BackgroundColor="#1F2A3A" HasShadow="True" CornerRadius="16" Padding="0" BorderColor="#314055" HorizontalOptions="End" VerticalOptions="Start" Margin="0,64,210,0" WidthRequest="430">
+                    <Grid RowDefinitions="Auto,*">
+
+                        <Grid BackgroundColor="#1B2432" Padding="18,14" ColumnDefinitions="Auto,Auto,*,Auto,Auto" ColumnSpacing="12">
+                            <Image Source="notification.png" HeightRequest="18" WidthRequest="18" Opacity="0.9" />
+                            <Label Grid.Column="1" Text="Notifications" TextColor="White" FontAttributes="Bold" FontSize="16" VerticalOptions="Center" />
+
+                            <Frame x:Name="OverlayBadgeFrame" Grid.Column="2" BackgroundColor="#EF4444" CornerRadius="14" HasShadow="False" Padding="10,4" HorizontalOptions="Start" VerticalOptions="Center">
+                                <Label x:Name="OverlayBadgeLabel" Text="3 new" TextColor="White" FontSize="12" FontAttributes="Bold" />
+                            </Frame>
+
+                            <HorizontalStackLayout Grid.Column="3" Spacing="8" VerticalOptions="Center" HorizontalOptions="End">
+                                <Label Text="✓✓" TextColor="#D5D9E0" FontSize="14" VerticalOptions="Center" />
+                                <Label Text="Mark all read" TextColor="#D5D9E0" FontSize="12" FontAttributes="Bold" VerticalOptions="Center" />
+                                <HorizontalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnMarkAllReadClicked" />
+                                </HorizontalStackLayout.GestureRecognizers>
+                            </HorizontalStackLayout>
+
+                            <Label Grid.Column="4" Text="✕" TextColor="#D5D9E0" FontSize="14" VerticalOptions="Center" HorizontalOptions="End">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnCloseNotifications" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+
+                        <ScrollView Grid.Row="1" HeightRequest="420">
+                            <VerticalStackLayout x:Name="NotificationsList" Spacing="0">
+                                <!-- Dynamic notifications will be populated from code-behind -->
+                            </VerticalStackLayout>
+                        </ScrollView>
+
+                    </Grid>
+                </Frame>
+            </Grid>
+
+            <Grid x:Name="AddScholarModal" Grid.Row="1" IsVisible="False" BackgroundColor="#000000" Opacity="0.55" HorizontalOptions="Fill" VerticalOptions="Fill" InputTransparent="False">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCloseAddScholarModal" />
+                </Grid.GestureRecognizers>
+            </Grid>
+
+            <Grid x:Name="AddScholarModalContent" Grid.Row="1" IsVisible="False" Padding="22" RowDefinitions="*" ColumnDefinitions="*" InputTransparent="False" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Frame CornerRadius="18" BackgroundColor="White" HasShadow="False" Padding="18" WidthRequest="720" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Grid RowDefinitions="Auto,Auto,Auto,Auto,*" RowSpacing="14">
+
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                            <Label Text="🎓" FontSize="18" TextColor="#16A34A" VerticalOptions="Center" />
+                            <Label x:Name="ScholarModalTitleLabel" Grid.Column="1" Text="Add New Scholar" FontSize="18" FontAttributes="Bold" TextColor="#0B1220" VerticalOptions="Center" />
+                            <Label Grid.Column="2" Text="✕" FontSize="16" TextColor="#6B7280" VerticalOptions="Center" HorizontalOptions="End">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnCloseAddScholarModal" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+
+                        <Label x:Name="ScholarModalSubtitleLabel" Grid.Row="1" Text="Fill in the scholar's details below. All required fields must be completed before saving." TextColor="#6B7280" FontSize="12" />
+
+                        <Frame Grid.Row="2" CornerRadius="18" BackgroundColor="#EEF0F3" HasShadow="False" Padding="6">
+                            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="6">
+                                <Frame x:Name="PersonalTab" CornerRadius="14" BackgroundColor="White" HasShadow="False" Padding="12,8">
+                                    <Label Text="Personal Info" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="#0B1220" />
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnPersonalTabTapped" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                                <Frame x:Name="AcademicTab" Grid.Column="1" CornerRadius="14" BackgroundColor="Transparent" HasShadow="False" Padding="12,8">
+                                    <Label Text="Academic Info" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="#0B1220" />
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnAcademicTabTapped" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                                <Frame x:Name="ScholarshipTab" Grid.Column="2" CornerRadius="14" BackgroundColor="Transparent" HasShadow="False" Padding="12,8">
+                                    <Label Text="Scholarship" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="#0B1220" />
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnScholarshipTabTapped" />
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                            </Grid>
+                        </Frame>
+
+                        <ScrollView Grid.Row="3" HeightRequest="460">
+                            <VerticalStackLayout Spacing="14">
+
+                                <VerticalStackLayout x:Name="PersonalInfoSection" IsVisible="True" Spacing="12">
+                                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="12">
+                                        <VerticalStackLayout Grid.Row="0" Grid.Column="0" Spacing="6">
+                                            <Label Text="First Name" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                            <Frame CornerRadius="10" BackgroundColor="#F3F4F6" HasShadow="False" Padding="12,10">
+                                                <Entry x:Name="FirstNameEntry" Placeholder="e.g. Maria Cristina" PlaceholderColor="#9CA3AF" BackgroundColor="Transparent" TextColor="#0B1220" />
+                                            </Frame>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="6">
+                                            <Label Text="Last Name" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                            <Frame CornerRadius="10" BackgroundColor="#F3F4F6" HasShadow="False" Padding="12,10">
+                                                <Entry x:Name="LastNameEntry" Placeholder="e.g. Santos" PlaceholderColor="#9CA3AF" BackgroundColor="Transparent" TextColor="#0B1220" />
+                                            </Frame>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Spacing="6">
+                                            <Label Text="Middle Name (optional)" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                            <Frame CornerRadius="10" BackgroundColor="#F3F4F6" HasShadow="False" Padding="12,10">
+                                                <Entry x:Name="MiddleNameEntry" Placeholder="e.g. Dela Cruz" PlaceholderColor="#9CA3AF" BackgroundColor="Transparent" TextColor="#0B1220" />
+                                            </Frame>
+                                        </VerticalStackLayout>
+                                        <Grid Grid.Row="2" Grid.ColumnSpan="2" ColumnDefinitions="*,*" ColumnSpacing="12">
+                                            <VerticalStackLayout Spacing="6">
+                                                <Label Text="Email Address" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                                <Frame CornerRadius="10" BackgroundColor="#F3F4F6" HasShadow="False" Padding="12,10">
+                                                    <Entry x:Name="EmailEntry" Placeholder="scholar@email.com" PlaceholderColor="#9CA3AF" Keyboard="Email" BackgroundColor="Transparent" TextColor="#0B1220" />
+                                                </Frame>
+                                            </VerticalStackLayout>
+                                            <VerticalStackLayout Grid.Column="1" Spacing="6">
+                                                <Label Text="Password" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                                <Frame CornerRadius="10" BackgroundColor="#F3F4F6" HasShadow="False" Padding="12,10">
+                                                    <Entry x:Name="PasswordEntry" Placeholder="Create password" PlaceholderColor="#9CA3AF" IsPassword="True" BackgroundColor="Transparent" TextColor="#0B1220" />
+                                                </Frame>
+                                            </VerticalStackLayout>
+                                        </Grid>
+                                        <VerticalStackLayout Grid.Row="3" Grid.ColumnSpan="2" Spacing="6">
+                                            <Label Text="ID Number" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                            <Frame CornerRadius="10" BackgroundColor="#F3F4F6" HasShadow="False" Padding="12,10">
+                                                <Entry x:Name="IdNumberEntry" Placeholder="e.g. SH-2022-001234" PlaceholderColor="#9CA3AF" BackgroundColor="Transparent" TextColor="#0B1220" />
+                                            </Frame>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Row="4" Grid.ColumnSpan="2" Spacing="6">
+                                            <Label Text="Phone Number" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                            <Frame CornerRadius="10" BackgroundColor="#F3F4F6" HasShadow="False" Padding="12,10">
+                                                <Entry x:Name="ContactNumberEntry" Placeholder="+639XXXXXXXXX" PlaceholderColor="#9CA3AF" Keyboard="Telephone" BackgroundColor="Transparent" TextColor="#0B1220" />
+                                            </Frame>
+                                        </VerticalStackLayout>
+                                    </Grid>
+
+                                    <VerticalStackLayout Spacing="6">
+                                        <Label Text="Home Address" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                        <Frame CornerRadius="10" BackgroundColor="#F3F4F6" HasShadow="False" Padding="12,10">
+                                            <Entry x:Name="HomeAddressEntry" Placeholder="City, Province" PlaceholderColor="#9CA3AF" BackgroundColor="Transparent" TextColor="#0B1220" />
+                                        </Frame>
+                                    </VerticalStackLayout>
+
+                                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                                            <VerticalStackLayout Spacing="6">
+                                                <Label Text="Gender" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                                <Frame CornerRadius="10" BackgroundColor="#E5E7EB" HasShadow="False" Padding="0" BorderColor="Transparent">
+                                                    <VerticalStackLayout Spacing="0">
+                                                        <!-- Header -->
+                                                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8" HeightRequest="42" BackgroundColor="#E5E7EB" Padding="12,0">
+                                                            <Grid.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="OnGenderTapped" />
+                                                            </Grid.GestureRecognizers>
+                                                            <Entry x:Name="GenderEntry" Placeholder="Select gender" PlaceholderColor="#6B7280" BackgroundColor="Transparent" TextColor="#0B1220" IsReadOnly="True" InputTransparent="True" />
+                                                            <Label Grid.Column="1" Text="▼" TextColor="Black" FontSize="10" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,8,0" InputTransparent="True" />
+                                                        </Grid>
+
+                                                        <!-- Dropdown Content (Expanded State) -->
+                                                        <VerticalStackLayout IsVisible="{Binding Source={x:Reference ScholarsPage}, Path=BindingContext.IsGenderDropdownOpen}">
+                                                            <BoxView HeightRequest="4" Color="White" />
+                                                            <VerticalStackLayout BackgroundColor="White" Padding="10,4,10,10" Spacing="4">
+                                                                <Button Text="Male" BackgroundColor="#E5E7EB" TextColor="#0B1220" FontSize="14" FontAttributes="Bold" CornerRadius="4" Padding="12" Clicked="OnGenderMaleOptionClicked" />
+                                                                <Button Text="Female" BackgroundColor="#E5E7EB" TextColor="#0B1220" FontSize="14" FontAttributes="Bold" CornerRadius="4" Padding="12" Clicked="OnGenderFemaleOptionClicked" />
+                                                            </VerticalStackLayout>
+                                                        </VerticalStackLayout>
+                                                    </VerticalStackLayout>
+                                                </Frame>
+                                            </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Column="1" Spacing="6">
+                                            <Label Text="Date of Birth" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                            <Frame CornerRadius="10" BackgroundColor="#F3F4F6" HasShadow="False" Padding="10,0">
+                                                <DatePicker x:Name="DateOfBirthPicker" TextColor="#0B1220" />
+                                            </Frame>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout x:Name="AcademicInfoSection" IsVisible="False" Spacing="12">
+                                    <VerticalStackLayout Spacing="6">
+                                        <Label Text="University / School *" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                        <Frame CornerRadius="10" BackgroundColor="#F3F4F6" HasShadow="False" Padding="12,10">
+                                            <Entry x:Name="SchoolEntry" Placeholder="e.g. University of the Philippines Los Baños" PlaceholderColor="#9CA3AF" BackgroundColor="Transparent" TextColor="#0B1220" />
+                                        </Frame>
+                                    </VerticalStackLayout>
+
+                                    <VerticalStackLayout Spacing="6">
+                                        <Label Text="Degree Program *" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                        <Frame CornerRadius="10" BackgroundColor="#E5E7EB" HasShadow="False" Padding="0" BorderColor="Transparent">
+                                            <VerticalStackLayout Spacing="0">
+                                                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8" HeightRequest="42" BackgroundColor="#E5E7EB" Padding="12,0">
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="OnDegreeProgramTapped" />
+                                                    </Grid.GestureRecognizers>
+                                                    <Entry x:Name="DegreeProgramEntry" Placeholder="Select degree program" PlaceholderColor="#6B7280" BackgroundColor="Transparent" TextColor="#0B1220" IsReadOnly="True" InputTransparent="True" />
+                                                    <Label Grid.Column="1" Text="▼" TextColor="Black" FontSize="10" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,8,0" InputTransparent="True" />
+                                                </Grid>
+                                                <VerticalStackLayout IsVisible="{Binding Source={x:Reference ScholarsPage}, Path=BindingContext.IsDegreeProgramDropdownOpen}">
+                                                    <BoxView HeightRequest="4" Color="White" />
+                                                    <VerticalStackLayout BackgroundColor="White" Padding="10,4,10,10" Spacing="4">
+                                                        <Button Text="BS Agriculture" BackgroundColor="#E5E7EB" TextColor="#0B1220" FontSize="14" FontAttributes="Bold" CornerRadius="4" Padding="12" Clicked="OnDegreeProgramOptionClicked" CommandParameter="BS Agriculture" />
+                                                        <Button Text="BS Agribusiness" BackgroundColor="#E5E7EB" TextColor="#0B1220" FontSize="14" FontAttributes="Bold" CornerRadius="4" Padding="12" Clicked="OnDegreeProgramOptionClicked" CommandParameter="BS Agribusiness" />
+                                                        <Button Text="BS Agricultural Engineering" BackgroundColor="#E5E7EB" TextColor="#0B1220" FontSize="14" FontAttributes="Bold" CornerRadius="4" Padding="12" Clicked="OnDegreeProgramOptionClicked" CommandParameter="BS Agricultural Engineering" />
+                                                    </VerticalStackLayout>
+                                                </VerticalStackLayout>
+                                            </VerticalStackLayout>
+                                        </Frame>
+                                        <Picker x:Name="DegreeProgramPicker" IsVisible="False">
+                                            <Picker.Items>
+                                                <x:String>BS Agriculture</x:String>
+                                                <x:String>BS Agribusiness</x:String>
+                                                <x:String>BS Agricultural Engineering</x:String>
+                                            </Picker.Items>
+                                        </Picker>
+                                    </VerticalStackLayout>
+
+                                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                                        <VerticalStackLayout Spacing="6">
+                                            <Label Text="Year Level *" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                            <Frame CornerRadius="10" BackgroundColor="#E5E7EB" HasShadow="False" Padding="0" BorderColor="Transparent">
+                                                <VerticalStackLayout Spacing="0">
+                                                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8" HeightRequest="42" BackgroundColor="#E5E7EB" Padding="12,0">
+                                                        <Grid.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnYearLevelTapped" />
+                                                        </Grid.GestureRecognizers>
+                                                        <Entry x:Name="YearLevelEntry" Placeholder="Select year" PlaceholderColor="#6B7280" BackgroundColor="Transparent" TextColor="#0B1220" IsReadOnly="True" InputTransparent="True" />
+                                                        <Label Grid.Column="1" Text="▼" TextColor="Black" FontSize="10" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,8,0" InputTransparent="True" />
+                                                    </Grid>
+                                                    <VerticalStackLayout IsVisible="{Binding Source={x:Reference ScholarsPage}, Path=BindingContext.IsYearDropdownOpen}">
+                                                        <BoxView HeightRequest="4" Color="White" />
+                                                        <VerticalStackLayout BackgroundColor="White" Padding="10,4,10,10" Spacing="4">
+                                                            <Button Text="1st Year" BackgroundColor="#E5E7EB" TextColor="#0B1220" FontSize="14" FontAttributes="Bold" CornerRadius="4" Padding="12" Clicked="OnYearOptionClicked" CommandParameter="1st Year" />
+                                                            <Button Text="2nd Year" BackgroundColor="#E5E7EB" TextColor="#0B1220" FontSize="14" FontAttributes="Bold" CornerRadius="4" Padding="12" Clicked="OnYearOptionClicked" CommandParameter="2nd Year" />
+                                                            <Button Text="3rd Year" BackgroundColor="#E5E7EB" TextColor="#0B1220" FontSize="14" FontAttributes="Bold" CornerRadius="4" Padding="12" Clicked="OnYearOptionClicked" CommandParameter="3rd Year" />
+                                                            <Button Text="4th Year" BackgroundColor="#E5E7EB" TextColor="#0B1220" FontSize="14" FontAttributes="Bold" CornerRadius="4" Padding="12" Clicked="OnYearOptionClicked" CommandParameter="4th Year" />
+                                                        </VerticalStackLayout>
+                                                    </VerticalStackLayout>
+                                                </VerticalStackLayout>
+                                            </Frame>
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Grid.Column="1" Spacing="6">
+                                            <Label Text="Current GPA *" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                            <Frame CornerRadius="10" BackgroundColor="#F3F4F6" HasShadow="False" Padding="12,10">
+                                                <Entry x:Name="GpaEntry" Placeholder="e.g. 3.75" PlaceholderColor="#9CA3AF" Keyboard="Numeric" BackgroundColor="Transparent" TextColor="#0B1220" />
+                                            </Frame>
+                                        </VerticalStackLayout>
+                                    </Grid>
+
+                                        <VerticalStackLayout Spacing="6">
+                                            <Label Text="Initial Status" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                            <Frame CornerRadius="10" BackgroundColor="#E5E7EB" HasShadow="False" Padding="0" BorderColor="Transparent">
+                                                <VerticalStackLayout Spacing="0">
+                                                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8" HeightRequest="42" BackgroundColor="#E5E7EB" Padding="12,0">
+                                                        <Grid.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="OnInitialStatusTapped" />
+                                                        </Grid.GestureRecognizers>
+                                                        <Entry x:Name="InitialStatusEntry" Placeholder="Select status" PlaceholderColor="#6B7280" BackgroundColor="Transparent" TextColor="#0B1220" IsReadOnly="True" InputTransparent="True" />
+                                                        <Label Grid.Column="1" Text="▼" TextColor="Black" FontSize="10" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,8,0" InputTransparent="True" />
+                                                    </Grid>
+                                                    <VerticalStackLayout IsVisible="{Binding Source={x:Reference ScholarsPage}, Path=BindingContext.IsInitialStatusDropdownOpen}">
+                                                        <BoxView HeightRequest="4" Color="White" />
+                                                        <VerticalStackLayout BackgroundColor="White" Padding="10,4,10,10" Spacing="4">
+                                                            <Button Text="Active" BackgroundColor="#E5E7EB" TextColor="#0B1220" FontSize="14" FontAttributes="Bold" CornerRadius="4" Padding="12" Clicked="OnInitialStatusOptionClicked" CommandParameter="Active" />
+                                                            <Button Text="Inactive" BackgroundColor="#E5E7EB" TextColor="#0B1220" FontSize="14" FontAttributes="Bold" CornerRadius="4" Padding="12" Clicked="OnInitialStatusOptionClicked" CommandParameter="Inactive" />
+                                                        </VerticalStackLayout>
+                                                    </VerticalStackLayout>
+                                                </VerticalStackLayout>
+                                            </Frame>
+                                            <Picker x:Name="InitialStatusPicker" IsVisible="False">
+                                                <Picker.Items>
+                                                    <x:String>Active</x:String>
+                                                    <x:String>Inactive</x:String>
+                                                </Picker.Items>
+                                            </Picker>
+                                        </VerticalStackLayout>
+
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout x:Name="ScholarshipSection" IsVisible="False" Spacing="12">
+                                    <VerticalStackLayout Spacing="6">
+                                        <Label Text="Scholarship Type" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                        <Frame CornerRadius="10" BackgroundColor="#E5E7EB" HasShadow="False" Padding="0" BorderColor="Transparent">
+                                            <VerticalStackLayout Spacing="0">
+                                                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8" HeightRequest="42" BackgroundColor="#E5E7EB" Padding="12,0">
+                                                    <Grid.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="OnScholarshipTypeTapped" />
+                                                    </Grid.GestureRecognizers>
+                                                    <Entry x:Name="ScholarshipTypeEntry" Placeholder="Select scholarship type" PlaceholderColor="#6B7280" BackgroundColor="Transparent" TextColor="#0B1220" IsReadOnly="True" InputTransparent="True" />
+                                                    <Label Grid.Column="1" Text="▼" TextColor="Black" FontSize="10" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,8,0" InputTransparent="True" />
+                                                </Grid>
+                                                <VerticalStackLayout IsVisible="{Binding Source={x:Reference ScholarsPage}, Path=BindingContext.IsScholarshipTypeDropdownOpen}">
+                                                    <BoxView HeightRequest="4" Color="White" />
+                                                    <VerticalStackLayout BackgroundColor="White" Padding="10,4,10,10" Spacing="4">
+                                                        <Button Text="Full Scholarship" BackgroundColor="#E5E7EB" TextColor="#0B1220" FontSize="14" FontAttributes="Bold" CornerRadius="4" Padding="12" Clicked="OnScholarshipTypeOptionClicked" CommandParameter="Full Scholarship" />
+                                                        <Button Text="Partial Scholarship" BackgroundColor="#E5E7EB" TextColor="#0B1220" FontSize="14" FontAttributes="Bold" CornerRadius="4" Padding="12" Clicked="OnScholarshipTypeOptionClicked" CommandParameter="Partial Scholarship" />
+                                                    </VerticalStackLayout>
+                                                </VerticalStackLayout>
+                                            </VerticalStackLayout>
+                                        </Frame>
+                                        <Picker x:Name="ScholarshipTypePicker" IsVisible="False">
+                                            <Picker.Items>
+                                                <x:String>Full Scholarship</x:String>
+                                                <x:String>Partial Scholarship</x:String>
+                                            </Picker.Items>
+                                        </Picker>
+                                    </VerticalStackLayout>
+
+                                    <VerticalStackLayout Spacing="6">
+                                        <Label Text="Additional Notes (optional)" TextColor="#0B1220" FontSize="12" FontAttributes="Bold" />
+                                        <Frame CornerRadius="10" BackgroundColor="#F3F4F6" HasShadow="False" Padding="12,10">
+                                            <Editor x:Name="AdditionalNotesEditor" Placeholder="Any additional information about this scholar..." PlaceholderColor="#9CA3AF" BackgroundColor="Transparent" TextColor="#0B1220" AutoSize="TextChanges" HeightRequest="110" />
+                                        </Frame>
+                                    </VerticalStackLayout>
+
+                                    <Frame CornerRadius="14" BackgroundColor="#EAF9EE" HasShadow="False" Padding="14" BorderColor="#BBF7D0">
+                                        <Label Text="A unique Scholar ID will be automatically generated upon submission. The scholar will receive an email invitation to set up their portal account." TextColor="#166534" FontSize="12" />
+                                    </Frame>
+                                </VerticalStackLayout>
+
+                                <Label x:Name="AddScholarErrorLabel" IsVisible="False" TextColor="#DC2626" FontSize="12" />
+
+                                <HorizontalStackLayout Spacing="12" HorizontalOptions="End" Margin="0,6,0,0">
+                                    <Button Text="Cancel" Clicked="OnCancelAddScholarClicked" BackgroundColor="White" TextColor="#0B1220" BorderColor="#E5E7EB" BorderWidth="1" CornerRadius="12" Padding="18,12" />
+                                    <Button x:Name="EditSaveButton" Text="Save Changes" Clicked="OnSaveScholarClicked" BackgroundColor="#16A34A" TextColor="White" CornerRadius="12" Padding="18,12" FontAttributes="Bold" IsVisible="False" />
+                                    <Button x:Name="ScholarModalPrimaryButton" Text="＋  Add Scholar" Clicked="OnSaveScholarClicked" BackgroundColor="#16A34A" TextColor="White" CornerRadius="12" Padding="18,12" FontAttributes="Bold" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </ScrollView>
+
+                    </Grid>
+                </Frame>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

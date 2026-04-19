@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgriScholarApp.Pages.RequirementsAnnouncementsManagementPage"
+             BackgroundColor="#F6F7FB">
+
+    <Grid ColumnDefinitions="260,*" RowDefinitions="*">
+
+        <Grid Grid.Column="0" BackgroundColor="#0B1220">
+            <Grid RowDefinitions="Auto,*" Padding="18,18,18,18" RowSpacing="18">
+
+                <VerticalStackLayout Spacing="12">
+                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                        <Image Grid.RowSpan="2" Source="agrischolar.png" HeightRequest="34" WidthRequest="34" Aspect="AspectFit" />
+                        <Label Grid.Column="1" Text="Agrischolars Admin Portal" TextColor="White" FontAttributes="Bold" FontSize="14" />
+                        <Label Grid.Row="1" Grid.Column="1" Text="Management Dashboard" TextColor="#9AA4B2" FontSize="12" />
+                    </Grid>
+
+                    <BoxView HeightRequest="1" Color="White" Opacity="0.45" HorizontalOptions="Fill" Margin="0,0,0,0" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Spacing="10">
+                    <HorizontalStackLayout Spacing="10" Margin="2,6,0,8" VerticalOptions="Center">
+                        <Image Source="admin.png" HeightRequest="18" WidthRequest="18" />
+                        <Label Text="Admin Panel" TextColor="White" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_1.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Dashboard" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnDashboardClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_2.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Scholars Management" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnScholarsManagementClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_3.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Document Verification" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnDocumentVerificationClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="#1E293B" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="requirement.png" HeightRequest="18" WidthRequest="18" />
+                            <Label Grid.Column="1" Text="Requirements &amp; Announcements" TextColor="White" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_5.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Reports &amp; Analytics" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnReportsAnalyticsClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame BackgroundColor="Transparent" CornerRadius="12" HasShadow="False" Padding="12,12">
+                        <Grid ColumnDefinitions="24,*" ColumnSpacing="12">
+                            <Image Source="icon_6.png" HeightRequest="18" WidthRequest="18" Opacity="0.85" />
+                            <Label Grid.Column="1" Text="Settings" TextColor="#D5D9E0" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSettingsClicked" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                </VerticalStackLayout>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1" RowDefinitions="Auto,*" BackgroundColor="#F6F7FB">
+
+            <Grid Grid.Row="0" BackgroundColor="#0B1220" Padding="22,14" ColumnDefinitions="*,Auto" HeightRequest="64">
+                <HorizontalStackLayout Grid.Column="1" Spacing="14" VerticalOptions="Center">
+                    <Grid HeightRequest="28" WidthRequest="28">
+                        <Frame HeightRequest="28" WidthRequest="28" CornerRadius="14" BackgroundColor="#122038" HasShadow="False" Padding="0">
+                            <Image Source="notification.png" HeightRequest="14" WidthRequest="14" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Frame>
+                        <Frame x:Name="HeaderBadgeFrame" HeightRequest="16" MinimumWidthRequest="16" CornerRadius="8" BackgroundColor="#E11D48" HasShadow="False" Padding="0" HorizontalOptions="End" VerticalOptions="Start" Margin="0,-6,-6,0">
+                            <Label x:Name="HeaderBadgeLabel" Text="3" FontSize="10" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Frame>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnNotificationsClicked" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <BoxView WidthRequest="1" HeightRequest="28" Color="#22304A" Opacity="0.9" />
+
+                    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                        <Frame HeightRequest="26" WidthRequest="26" CornerRadius="13" BackgroundColor="#1E293B" HasShadow="False" Padding="0">
+                            <Image Source="admin_profile.png" HeightRequest="26" WidthRequest="26" Aspect="AspectFill" />
+                        </Frame>
+                        <VerticalStackLayout Spacing="0" VerticalOptions="Center">
+                            <Label Text="Admin" TextColor="White" FontAttributes="Bold" FontSize="12" />
+                            <Label Text="System Administrator" TextColor="#9AA4B2" FontSize="10" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+
+                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                        <Image Source="logout.png" HeightRequest="16" WidthRequest="16" />
+                        <Label Text="Logout" TextColor="White" FontAttributes="Bold" FontSize="12" VerticalOptions="Center" />
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLogoutClicked" />
+                        </HorizontalStackLayout.GestureRecognizers>
+                    </HorizontalStackLayout>
+                </HorizontalStackLayout>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <ScrollView>
+                    <VerticalStackLayout Padding="22" Spacing="16">
+
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Requirements &amp; Announcements" FontSize="24" FontAttributes="Bold" TextColor="#0B1220" />
+                            <Label Text="Create document requirements and automatically notify scholars" FontSize="13" TextColor="#6B7280" />
+                        </VerticalStackLayout>
+
+                        <Button Grid.Column="1" Text="Create Requirement" BackgroundColor="#16A34A" TextColor="White" CornerRadius="10" Padding="18,12" Clicked="OnCreateRequirementClicked" />
+                    </Grid>
+
+                    <Grid ColumnDefinitions="2*,*" ColumnSpacing="14">
+
+                        <Frame CornerRadius="14" BackgroundColor="White" HasShadow="False" Padding="16" BorderColor="#E5E7EB">
+                            <VerticalStackLayout Spacing="10">
+                                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                                    <Label Text="Requirements" FontAttributes="Bold" FontSize="14" TextColor="#0B1220" />
+                                    <Picker x:Name="StatusFilterPicker" Grid.Column="1" Title="Status" SelectedIndexChanged="OnStatusFilterChanged" WidthRequest="180">
+                                        <Picker.Items>
+                                            <x:String>All</x:String>
+                                            <x:String>Active</x:String>
+                                            <x:String>Disabled</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                </Grid>
+
+                                <CollectionView x:Name="RequirementsCollection" ItemsSource="{Binding FilteredRequirements}" SelectionMode="None">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame CornerRadius="12" BackgroundColor="White" HasShadow="False" Padding="14" BorderColor="#E5E7EB" Margin="0,0,0,12">
+                                                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" RowSpacing="6" ColumnSpacing="12">
+                                                    <VerticalStackLayout Spacing="2">
+                                                        <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="13" TextColor="#0B1220" />
+                                                        <Label Text="{Binding CategoryDisplay}" FontSize="11" TextColor="#6B7280" />
+                                                        <Label Text="{Binding DeadlineDisplay}" FontSize="11" TextColor="#6B7280" />
+                                                    </VerticalStackLayout>
+
+                                                    <VerticalStackLayout Grid.Column="1" Spacing="8" HorizontalOptions="End" VerticalOptions="Start">
+                                                        <Frame CornerRadius="10" BackgroundColor="{Binding StatusBadgeColor}" HasShadow="False" Padding="10,3" HorizontalOptions="End">
+                                                            <Label Text="{Binding StatusDisplay}" FontSize="10" TextColor="{Binding StatusTextColor}" FontAttributes="Bold" />
+                                                        </Frame>
+
+                                                        <HorizontalStackLayout Spacing="8" HorizontalOptions="End">
+                                                            <Button Text="Edit" BackgroundColor="White" TextColor="#0B1220" BorderColor="#E5E7EB" BorderWidth="1" CornerRadius="10" Padding="14,8" Clicked="OnEditRequirementClicked" CommandParameter="{Binding}" />
+                                                            <Button Text="Delete" BackgroundColor="#DC2626" TextColor="White" CornerRadius="10" Padding="14,8" Clicked="OnDeleteRequirementClicked" CommandParameter="{Binding}" />
+                                                        </HorizontalStackLayout>
+                                                    </VerticalStackLayout>
+
+                                                    <HorizontalStackLayout Grid.Row="1" Grid.ColumnSpan="2" Spacing="10">
+                                                        <Button Text="Extend Deadline" BackgroundColor="White" TextColor="#0B1220" BorderColor="#E5E7EB" BorderWidth="1" CornerRadius="10" Padding="14,8" Clicked="OnExtendDeadlineClicked" CommandParameter="{Binding}" />
+                                                    </HorizontalStackLayout>
+                                                </Grid>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <Frame Grid.Column="1" CornerRadius="14" BackgroundColor="White" HasShadow="False" Padding="16" BorderColor="#E5E7EB">
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="Latest Announcements" FontAttributes="Bold" FontSize="14" TextColor="#0B1220" />
+                                <Label Text="Auto-generated when creating requirements" FontSize="12" TextColor="#6B7280" />
+
+                                <CollectionView x:Name="AnnouncementsCollection" ItemsSource="{Binding Announcements}" SelectionMode="None">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame CornerRadius="12" BackgroundColor="White" HasShadow="False" Padding="14" BorderColor="#E5E7EB" Margin="0,0,0,12">
+                                                <VerticalStackLayout Spacing="4">
+                                                    <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="13" TextColor="#0B1220" />
+                                                    <Label Text="{Binding Message}" FontSize="11" TextColor="#6B7280" LineBreakMode="WordWrap" />
+                                                    <Label Text="{Binding CreatedAtDisplay}" FontSize="10" TextColor="#9CA3AF" />
+                                                </VerticalStackLayout>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                    </Grid>
+
+                    </VerticalStackLayout>
+                </ScrollView>
+            </Grid>
+
+            <Grid x:Name="RequirementEditorOverlay" Grid.RowSpan="2" IsVisible="False" InputTransparent="False" HorizontalOptions="Fill" VerticalOptions="Fill">
+                
+                <!-- Dimmed Background -->
+                    <Grid BackgroundColor="#0F172A" Opacity="0.6">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCloseRequirementEditor" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                    <Grid Padding="20" InputTransparent="False" VerticalOptions="Center" HorizontalOptions="Fill" MaximumWidthRequest="640">
+                        <Frame CornerRadius="24" BackgroundColor="White" HasShadow="True" Padding="0" HorizontalOptions="Fill" VerticalOptions="Center">
+                            <Grid RowDefinitions="Auto,*,Auto">
+                                
+                                <!-- Header -->
+                                <Grid BackgroundColor="#F8FAFC" Padding="24,20" ColumnDefinitions="Auto,*,Auto" ColumnSpacing="16">
+                                    <Frame HeightRequest="48" WidthRequest="48" CornerRadius="16" BackgroundColor="#DCFCE7" HasShadow="False" Padding="0" VerticalOptions="Center">
+                                        <Label Text="📣" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" />
+                                    </Frame>
+                                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                        <Label x:Name="EditorTitleLabel" Text="Create Announcement" FontSize="18" FontAttributes="Bold" TextColor="#0F172A" />
+                                        <Label Text="Automatically notify scholars of new requirements" TextColor="#64748B" FontSize="12" />
+                                    </VerticalStackLayout>
+                                    <Frame Grid.Column="2" HeightRequest="32" WidthRequest="32" CornerRadius="16" BackgroundColor="#F1F5F9" HasShadow="False" Padding="0" VerticalOptions="Start">
+                                        <Label Text="✕" FontSize="13" FontAttributes="Bold" TextColor="#64748B" HorizontalOptions="Center" VerticalOptions="Center" />
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnCloseRequirementEditor" />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+                                </Grid>
+
+                                <!-- Divider -->
+                                <BoxView Grid.Row="1" HeightRequest="1" Color="#E2E8F0" VerticalOptions="Start" />
+
+                                <!-- Body -->
+                                <ScrollView Grid.Row="1" Margin="0,1" MaximumHeightRequest="420">
+                                    <VerticalStackLayout Padding="24" Spacing="20">
+                                        
+                                        <VerticalStackLayout Spacing="8">
+                                            <Label Text="Announcement Title" TextColor="#334155" FontSize="12" FontAttributes="Bold" CharacterSpacing="0.5" />
+                                            <Frame CornerRadius="12" BackgroundColor="#F8FAFC" BorderColor="#CBD5E1" HasShadow="False" Padding="16,2">
+                                                <Entry x:Name="RequirementTitleEntry" Placeholder="e.g. Official Transcript Submission" PlaceholderColor="#94A3B8" TextColor="#0F172A" FontSize="14" BackgroundColor="Transparent" />
+                                            </Frame>
+                                        </VerticalStackLayout>
+
+                                        <VerticalStackLayout Spacing="8">
+                                            <Label Text="Detailed Instructions" TextColor="#334155" FontSize="12" FontAttributes="Bold" CharacterSpacing="0.5" />
+                                            <Frame CornerRadius="12" BackgroundColor="#F8FAFC" BorderColor="#CBD5E1" HasShadow="False" Padding="16,8">
+                                                <Editor x:Name="DescriptionEditor" AutoSize="TextChanges" Placeholder="Provide clear instructions on what scholars must prepare..." PlaceholderColor="#94A3B8" TextColor="#0F172A" FontSize="14" MinimumHeightRequest="100" BackgroundColor="Transparent" />
+                                            </Frame>
+                                        </VerticalStackLayout>
+
+                                        <Grid ColumnDefinitions="*,*" ColumnSpacing="16" RowSpacing="20" RowDefinitions="Auto,Auto">
+                                            
+                                            <VerticalStackLayout Spacing="8">
+                                                <Label Text="Deadline" TextColor="#334155" FontSize="12" FontAttributes="Bold" CharacterSpacing="0.5" />
+                                                <Frame CornerRadius="12" BackgroundColor="#F8FAFC" BorderColor="#CBD5E1" HasShadow="False" Padding="16,2">
+                                                    <DatePicker x:Name="DeadlinePicker" TextColor="#0F172A" FontSize="14" BackgroundColor="Transparent" />
+                                                </Frame>
+                                            </VerticalStackLayout>
+
+                                            <VerticalStackLayout Grid.Column="1" Spacing="8">
+                                                <Label Text="Status" TextColor="#334155" FontSize="12" FontAttributes="Bold" CharacterSpacing="0.5" />
+                                                <Frame CornerRadius="12" BackgroundColor="#F8FAFC" BorderColor="#CBD5E1" HasShadow="False" Padding="16,2">
+                                                    <Entry x:Name="StatusEntry" Text="Active" Placeholder="e.g. Active, Disabled" PlaceholderColor="#94A3B8" TextColor="#0F172A" FontSize="14" BackgroundColor="Transparent" />
+                                                </Frame>
+                                            </VerticalStackLayout>
+
+                                            <VerticalStackLayout Grid.Row="1" Spacing="8">
+                                                <Label Text="Category" TextColor="#9CA3AF" FontSize="12" FontAttributes="Bold" CharacterSpacing="0.5" />
+                                                <Frame CornerRadius="12" BackgroundColor="#F1F5F9" BorderColor="#E2E8F0" HasShadow="False" Padding="16,2">
+                                                    <Entry x:Name="CategoryEntry" Text="Academic Requirement" TextColor="#64748B" FontSize="14" IsReadOnly="True" BackgroundColor="Transparent" />
+                                                </Frame>
+                                            </VerticalStackLayout>
+
+                                            <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="8">
+                                                <Label Text="Target Audience" TextColor="#9CA3AF" FontSize="12" FontAttributes="Bold" CharacterSpacing="0.5" />
+                                                <Frame CornerRadius="12" BackgroundColor="#F1F5F9" BorderColor="#E2E8F0" HasShadow="False" Padding="16,2">
+                                                    <Entry x:Name="RequiredForEntry" Text="All Scholars" TextColor="#64748B" FontSize="14" IsReadOnly="True" BackgroundColor="Transparent" />
+                                                </Frame>
+                                            </VerticalStackLayout>
+                                        </Grid>
+
+                                    </VerticalStackLayout>
+                                </ScrollView>
+
+                                <!-- Footer -->
+                                <BoxView Grid.Row="1" HeightRequest="1" Color="#E2E8F0" VerticalOptions="End" />
+                                <Grid Grid.Row="2" BackgroundColor="#F8FAFC" Padding="24,20" ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                                    <Button Text="Cancel" BackgroundColor="White" TextColor="#64748B" FontAttributes="Bold" FontSize="14" CornerRadius="12" Padding="20,12" BorderColor="#CBD5E1" BorderWidth="1" HorizontalOptions="Start" Clicked="OnCancelRequirementEditor" />
+                                    <Button Grid.Column="1" x:Name="SaveRequirementButton" Text="Publish Announcement" BackgroundColor="#10B981" TextColor="White" FontAttributes="Bold" FontSize="14" CornerRadius="12" Padding="24,12" Clicked="OnSaveRequirementClicked" />
+                                </Grid>
+
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </Grid>
+
+            <Grid x:Name="NotificationsOverlay" Grid.RowSpan="2" IsVisible="False" InputTransparent="False">
+                <BoxView BackgroundColor="Transparent">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCloseNotifications" />
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <Frame BackgroundColor="#1F2A3A" HasShadow="True" CornerRadius="16" Padding="0" BorderColor="#314055" HorizontalOptions="End" VerticalOptions="Start" Margin="0,64,210,0" WidthRequest="430">
+                    <Grid RowDefinitions="Auto,*">
+
+                        <Grid BackgroundColor="#1B2432" Padding="18,14" ColumnDefinitions="Auto,Auto,*,Auto,Auto" ColumnSpacing="12">
+                            <Image Source="notification.png" HeightRequest="18" WidthRequest="18" Opacity="0.9" />
+                            <Label Grid.Column="1" Text="Notifications" TextColor="White" FontAttributes="Bold" FontSize="16" VerticalOptions="Center" />
+
+                            <Frame x:Name="OverlayBadgeFrame" Grid.Column="2" BackgroundColor="#EF4444" CornerRadius="14" HasShadow="False" Padding="10,4" HorizontalOptions="Start" VerticalOptions="Center">
+                                <Label x:Name="OverlayBadgeLabel" Text="3 new" TextColor="White" FontSize="12" FontAttributes="Bold" />
+                            </Frame>
+
+                            <HorizontalStackLayout Grid.Column="3" Spacing="8" VerticalOptions="Center" HorizontalOptions="End">
+                                <Label Text="✓✓" TextColor="#D5D9E0" FontSize="14" VerticalOptions="Center" />
+                                <Label Text="Mark all read" TextColor="#D5D9E0" FontSize="12" FontAttributes="Bold" VerticalOptions="Center" />
+                                <HorizontalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnMarkAllReadClicked" />
+                                </HorizontalStackLayout.GestureRecognizers>
+                            </HorizontalStackLayout>
+
+                            <Label Grid.Column="4" Text="✕" TextColor="#D5D9E0" FontSize="14" VerticalOptions="Center" HorizontalOptions="End">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnCloseNotifications" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+
+                        <ScrollView Grid.Row="1" HeightRequest="420">
+                            <VerticalStackLayout x:Name="NotificationsList" Spacing="0">
+                                <!-- Dynamic notifications will be populated from code-behind -->
+                            </VerticalStackLayout>
+                        </ScrollView>
+
+                    </Grid>
+                </Frame>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</ContentPage>

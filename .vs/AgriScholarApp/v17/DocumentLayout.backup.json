@@ -1,0 +1,57 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Justin\\source\\repos\\AgriScholarApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A8DC5333-E341-4EDA-8522-625CDB7E5741}|AgriScholarApp\\AgriScholarApp.csproj|c:\\users\\justin\\source\\repos\\agrischolarapp\\agrischolarapp\\adminpage\\requirementsannouncementsmanagementpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A8DC5333-E341-4EDA-8522-625CDB7E5741}|AgriScholarApp\\AgriScholarApp.csproj|solutionrelative:agrischolarapp\\adminpage\\requirementsannouncementsmanagementpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8DC5333-E341-4EDA-8522-625CDB7E5741}|AgriScholarApp\\AgriScholarApp.csproj|c:\\users\\justin\\source\\repos\\agrischolarapp\\agrischolarapp\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A8DC5333-E341-4EDA-8522-625CDB7E5741}|AgriScholarApp\\AgriScholarApp.csproj|solutionrelative:agrischolarapp\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RequirementsAnnouncementsManagementPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Justin\\source\\repos\\AgriScholarApp\\AgriScholarApp\\AdminPage\\RequirementsAnnouncementsManagementPage.xaml.cs",
+              "RelativeDocumentMoniker": "AgriScholarApp\\AdminPage\\RequirementsAnnouncementsManagementPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Justin\\source\\repos\\AgriScholarApp\\AgriScholarApp\\AdminPage\\RequirementsAnnouncementsManagementPage.xaml.cs",
+              "RelativeToolTip": "AgriScholarApp\\AdminPage\\RequirementsAnnouncementsManagementPage.xaml.cs",
+              "ViewState": "AgIAAMwBAAAAAAAAAAAIwPMBAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T13:33:14.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppShell.xaml",
+              "DocumentMoniker": "C:\\Users\\Justin\\source\\repos\\AgriScholarApp\\AgriScholarApp\\AppShell.xaml",
+              "RelativeDocumentMoniker": "AgriScholarApp\\AppShell.xaml",
+              "ToolTip": "C:\\Users\\Justin\\source\\repos\\AgriScholarApp\\AgriScholarApp\\AppShell.xaml",
+              "RelativeToolTip": "AgriScholarApp\\AppShell.xaml",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-08T02:58:29.307Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
